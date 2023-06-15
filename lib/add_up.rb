@@ -15,3 +15,7 @@
 
 # Notes
 # Expect any positive number between 1 and 1000.
+
+def add_up(num)
+  (1..num).sum
+end
