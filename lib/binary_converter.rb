@@ -12,3 +12,11 @@
 
 # Notes
 # Return an integer.
+
+def binary_to_decimal(binary)
+  decimal = []
+  binary.each_with_index do |digit, index|
+    decimal << digit * 128 * (1 / 2.0 ** index)
+  end
+  decimal.sum.to_i
+end
