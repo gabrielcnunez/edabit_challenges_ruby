@@ -16,10 +16,5 @@
 # For an empty array input, return: "No array has been selected"
 
 def next_in_line(arr, num)
-  if arr.empty?
-    "No array has been selected"
-  else
-    arr.shift
-    arr << num
-  end
+  arr.empty? ? "No array has been selected" : (arr.shift; arr << num)
 end
