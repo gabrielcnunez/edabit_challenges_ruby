@@ -14,9 +14,7 @@
 # Return an integer.
 
 def binary_to_decimal(binary)
-  decimal = []
-  binary.each_with_index do |digit, index|
-    decimal << digit * 128 * (1 / 2.0 ** index)
-  end
-  decimal.sum.to_i
+  binary.each_with_index.reduce(0) do |sum, (digit, index)|
+    sum + digit * 2.0 ** (binary.size - 1 - index)
+  end.to_i
 end
