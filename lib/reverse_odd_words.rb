@@ -12,3 +12,11 @@
 
 # Notes
 # There is exactly one space between each word and no punctuation is used.
+
+def reverse_odd(str)
+  array = str.split(' ')
+  array.map do |word|
+    word.reverse! if word.size % 2 != 0
+  end
+  array.join(' ')
+end
