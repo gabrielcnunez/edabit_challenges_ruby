@@ -15,3 +15,11 @@
 # The input (step) will always be a non-negative integer.
 # Think of the input (step) as the total number of houses that 
 # have been connected together.
+
+def match_houses(step)
+  if step == 0
+    0
+  else
+    6 + 5 * (step - 1)
+  end
+end
