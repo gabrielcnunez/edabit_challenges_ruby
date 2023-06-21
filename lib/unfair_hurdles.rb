@@ -41,3 +41,7 @@
 # There will be the same spacing between hurdles.
 # Hurdles are always as high as the length of the array.
 # Hurdles are always evenly spaced.
+
+def is_unfair_hurdle(hurdles)
+  hurdles.size > 3 || !hurdles[0][1..4].strip.empty?
+end
