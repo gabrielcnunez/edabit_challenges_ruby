@@ -18,7 +18,5 @@
 # Return an empty array if no subarrays satisfy the (n,k) condition.
 
 def sliding_sum(arr, n, k)
-  subarrays = []
-  arr.each_cons(n) { |cons| cons.sum == k ? subarrays << cons : cons}
-  subarrays
+  arr.each_cons(n).map { |cons| cons if cons.sum == k }.compact
 end
