@@ -15,3 +15,13 @@
 # Notes
 # Lists are sorted.
 # Try doing this problem with O(n + m) time complexity.
+
+def common_elements(arr1, arr2)
+  common_array = []
+  arr1.each do |num1|
+    if arr2.include?(num1)
+      common_array << num1
+    end
+  end
+  common_array.uniq
+end
