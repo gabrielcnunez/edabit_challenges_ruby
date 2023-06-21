@@ -17,11 +17,7 @@
 # Try doing this problem with O(n + m) time complexity.
 
 def common_elements(arr1, arr2)
-  common_array = []
-  arr1.each do |num1|
-    if arr2.include?(num1)
-      common_array << num1
-    end
+  arr1.uniq.select do |num1|
+    arr2.include?(num1)
   end
-  common_array.uniq
 end
