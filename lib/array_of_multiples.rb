@@ -14,7 +14,5 @@
 # Notice that num is also included in the returned array.
 
 def array_of_multiples(num, length)
-  multiples_array = []
-  (1..length).each { |i| multiples_array << num * i}
-  multiples_array
+  (1..length).map { |i| num * i }
 end
