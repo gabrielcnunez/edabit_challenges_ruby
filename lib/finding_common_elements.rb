@@ -17,7 +17,5 @@
 # Try doing this problem with O(n + m) time complexity.
 
 def common_elements(arr1, arr2)
-  arr1.uniq.select do |num1|
-    arr2.include?(num1)
-  end
+  arr1 & arr2
 end
