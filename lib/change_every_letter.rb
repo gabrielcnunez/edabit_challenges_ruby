@@ -15,3 +15,7 @@
 
 # Notes
 # There will be no z's in the tests.
+
+def change_letter(str)
+  str.each_char.map { |ltr| (ltr.ord + 1).chr }.join
+end
