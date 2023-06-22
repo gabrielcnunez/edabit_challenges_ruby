@@ -20,17 +20,8 @@
 # Abbreviations will be a substring from [0, n] from the original string.
 
 def unique_abbrev(abbs, words)
-  abbs.each do |abb|
-    matches = []
-    words.each do |word|
-      if word.start_with?(abb)
-        matches << word
-      end
-    end
-    if matches.size > 1
-      return false
-      break
-    end
+  abbs.all? do |abb|
+    matches = words.count { |word| word.start_with?(abb) }
+    matches == 1
   end
-  true 
 end
