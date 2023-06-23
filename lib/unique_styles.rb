@@ -23,3 +23,7 @@
 
 # Notes
 # N/A
+
+def unique_styles(albums)
+  albums.join(',').split(",").uniq.size
+end
