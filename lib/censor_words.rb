@@ -14,3 +14,15 @@
 # Don't censor words with exactly four characters.
 # If all words have four characters or less, return the original string.
 # The amount of * is the same as the length of the word.
+
+def censor(str)
+  new_str = []
+  str.split.each do |word|
+    if word.size > 4
+      new_str << word.gsub(/\w/, "*")
+    else
+      new_str << word
+    end 
+  end
+  new_str.join(" ")
+end
