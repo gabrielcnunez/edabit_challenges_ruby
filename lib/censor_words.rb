@@ -16,13 +16,11 @@
 # The amount of * is the same as the length of the word.
 
 def censor(str)
-  new_str = []
-  str.split.each do |word|
+  str.split.map do |word|
     if word.size > 4
-      new_str << word.gsub(/\w/, "*")
+      "*" * word.size
     else
-      new_str << word
-    end 
-  end
-  new_str.join(" ")
+      word
+    end
+  end.join(" ")
 end
