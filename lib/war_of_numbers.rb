@@ -25,12 +25,6 @@
 def war_of_numbers(arr)
   odds = []
   evens = []
-  arr.each do |int|
-    if int.even?
-      evens << int
-    else
-      odds << int
-    end
-  end
+  arr.each { |int| int.even? ? evens << int : odds << int}
   (odds.sum - evens.sum).abs
 end
