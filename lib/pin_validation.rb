@@ -19,5 +19,5 @@
 # Empty strings must return false.
 
 def is_valid_PIN(str)
-  str.split(//).all?(/\d/) && (str.size == 4 || str.size == 6)
+  /^\d{4}$|^\d{6}$/.match?(str)
 end
