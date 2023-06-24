@@ -3,7 +3,7 @@ require './lib/war_of_numbers'
 
 RSpec.describe 'war of numbers' do
   it 'returns the difference between the sum of even and odd integers' do
-    expect(war_of_numbers([5, 9, 45, 6, 2, 7, 34, 8, 6, 90, 5, 243])).to eq(16)
+    expect(war_of_numbers([5, 9, 45, 6, 2, 7, 34, 8, 6, 90, 5, 243])).to eq(168)
     expect(war_of_numbers([654, 7, 23, 3, 78, 4, 56, 34])).to eq(793)
     expect(war_of_numbers([1, 2, 3, 4, 5, 6, 7, 8, 9])).to eq(5)
     expect(war_of_numbers([97 ,83, 209, 141, 134, 298, 110, 207, 229, 275, 115, 64, 244, 278])).to eq(228)

@@ -21,3 +21,16 @@
 
 # Notes
 # The given array contains only positive integers.
+
+def war_of_numbers(arr)
+  odds = []
+  evens = []
+  arr.each do |int|
+    if int.even?
+      evens << int
+    else
+      odds << int
+    end
+  end
+  (odds.sum - evens.sum).abs
+end
