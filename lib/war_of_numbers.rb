@@ -23,8 +23,5 @@
 # The given array contains only positive integers.
 
 def war_of_numbers(arr)
-  odds = []
-  evens = []
-  arr.each { |int| int.even? ? evens << int : odds << int}
-  (odds.sum - evens.sum).abs
+  arr.sum { |int| int.even? ? int : -int }.abs
 end
