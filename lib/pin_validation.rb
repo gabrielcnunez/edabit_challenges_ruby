@@ -17,3 +17,7 @@
 # Notes
 # Some test cases contain special characters.
 # Empty strings must return false.
+
+def is_valid_PIN(str)
+  str.split(//).all?(/\d/) && (str.size == 4 || str.size == 6)
+end

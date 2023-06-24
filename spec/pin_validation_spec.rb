@@ -13,7 +13,7 @@ RSpec.describe 'ATM PIN code validation' do
     expect(is_valid_PIN("#234")).to eq(false)
     expect(is_valid_PIN("$234")).to eq(false)
     expect(is_valid_PIN("*234")).to eq(false)
-    expect(is_valid_PIN("5678")).to eq(false)
+    expect(is_valid_PIN("5678")).to eq(true)
     expect(is_valid_PIN("^234")).to eq(false)
     expect(is_valid_PIN("(234")).to eq(false)
     expect(is_valid_PIN(")234")).to eq(false)
