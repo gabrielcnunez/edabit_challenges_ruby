@@ -18,3 +18,15 @@
 # Notes
 # Note names will always be a capital letter followed by either # or b.
 # Remember that the note after G is A and vice versa.
+
+def get_equivalent(note)
+  if note == "G#"
+    "Ab"
+  elsif note == "Ab"
+    "G#"
+  elsif note.end_with?("#")
+    (note[0].ord + 1).chr + "b"
+  else
+    (note[0].ord - 1).chr + "#"
+  end
+end
