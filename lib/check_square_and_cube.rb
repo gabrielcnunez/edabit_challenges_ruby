@@ -13,3 +13,7 @@
 # Notes
 # Remember to return either true or false.
 # All lists contain two positive numbers.
+
+def check_square_and_cube(arr)
+  Math.sqrt(arr[0]) == Math.cbrt(arr[1])
+end
