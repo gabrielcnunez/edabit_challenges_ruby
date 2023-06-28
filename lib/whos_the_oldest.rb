@@ -21,5 +21,5 @@
 # All ages will be different.
 
 def oldest(people)
-  people.sort_by { |name, age| -age }.first[0]
+  people.max_by { |name, age| age }[0]
 end
