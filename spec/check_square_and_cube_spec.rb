@@ -8,7 +8,7 @@ RSpec.describe 'check_square_and_cube' do
     expect(check_square_and_cube([9, 27])).to eq(true)
     expect(check_square_and_cube([25, 120])).to eq(false)
     expect(check_square_and_cube([25, 125])).to eq(true)
-    expect(check_square_and_cube(36, 215)).to eq(false)
+    expect(check_square_and_cube([36, 215])).to eq(false)
     expect(check_square_and_cube([36, 217])).to eq(false)
     expect(check_square_and_cube([144, 1728])).to eq(true)
     expect(check_square_and_cube([1, 1])).to eq(true)
