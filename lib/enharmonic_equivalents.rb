@@ -20,13 +20,26 @@
 # Remember that the note after G is A and vice versa.
 
 def get_equivalent(note)
-  if note == "G#"
-    "Ab"
-  elsif note == "Ab"
-    "G#"
-  elsif note.end_with?("#")
-    (note[0].ord + 1).chr + "b"
-  else
-    (note[0].ord - 1).chr + "#"
-  end
+  # if note == "G#"
+  #   "Ab"
+  # elsif note == "Ab"
+  #   "G#"
+  # elsif note.end_with?("#")
+  #   (note[0].ord + 1).chr + "b"
+  # else
+  #   (note[0].ord - 1).chr + "#"
+  # end
+  equivalents = {
+    "C#" => "Db",
+    "Db" => "C#",
+    "D#" => "Eb",
+    "Eb" => "D#",
+    "F#" => "Gb",
+    "Gb" => "F#",
+    "G#" => "Ab",
+    "Ab" => "G#",
+    "A#" => "Bb",
+    "Bb" => "A#"
+  }
+  equivalents[note]
 end
