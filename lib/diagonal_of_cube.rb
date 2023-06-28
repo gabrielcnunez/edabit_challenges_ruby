@@ -12,3 +12,7 @@
 
 # Notes
 # N/A
+
+def cube_diagonal(volume)
+  (Math.cbrt(volume) * Math.sqrt(3)).round(2)
+end
