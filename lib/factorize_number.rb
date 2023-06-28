@@ -14,3 +14,7 @@
 # A factor is a number that evenly divides into another 
 # number without leaving a remainder. The second example 
 # is a factor of 12, because 12 / 2 = 6, with remainder 0.
+
+def factorize(num)
+  (1..num).find_all { |i| num % i == 0 }
+end
