@@ -16,6 +16,14 @@
 # If the array is empty, return nil.
 
 def majority_vote(arr)
-  most = arr.tally.sort_by(&:last).last
-  most.nil? || most[1] <= arr.size * 0.5 ? nil : most[0]
+  # most = arr.tally.sort_by(&:last).last
+  # most.nil? || most[1] <= arr.size * 0.5 ? nil : most[0]
+
+  counts = Hash.new(0)
+  arr.each { |elem| counts[elem] += 1 }
+
+  majority = counts.max_by { |_, count| count }
+  return nil if majority.nil? || majority[1] <= arr.size * 0.5
+
+  majority[0]
 end
