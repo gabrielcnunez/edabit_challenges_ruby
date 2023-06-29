@@ -14,3 +14,12 @@
 # The frequency of the majority element must be strictly greater than 1/2.
 # If there is no majority element, return nil.
 # If the array is empty, return nil.
+
+def majority_vote(arr)
+  highest_vote = arr.tally.sort_by(&:last).last
+  if highest_vote.nil? || highest_vote[1] <= arr.size * 0.5
+    nil
+  else
+    highest_vote[0]
+  end
+end
