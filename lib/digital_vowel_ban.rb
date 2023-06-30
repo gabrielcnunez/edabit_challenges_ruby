@@ -45,22 +45,12 @@ def digital_vowel_ban(n, ban)
     3 => "three",
     2 => "two",
     1 => "one",
-    0 => "zero",
-    "nine" => 9,
-    "eight" => 8,
-    "seven" => 7,
-    "six" => 6,
-    "five" => 5,
-    "four" => 4,
-    "three" => 3,
-    "two" => 2,
-    "one" => 1,
-    "zero" => 0
+    0 => "zero"
   }
   num_array = n.to_s.chars.map(&:to_i)
   words = num_array.map { |num| equivalents[num] }
 
   unbanned_nums = words.reject { |word| word.include?(ban) }
-  
-  unbanned_nums.empty? ? "Banned Number" : unbanned_nums.map { |num| equivalents[num] }.join.to_i
+
+  unbanned_nums.empty? ? "Banned Number" : unbanned_nums.map { |num| equivalents.key(num) }.join.to_i
 end
