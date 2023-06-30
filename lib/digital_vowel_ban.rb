@@ -33,3 +33,34 @@
 
 # Notes
 # Every given number will be a positive integer greater than 0.
+
+def digital_vowel_ban(n, ban)
+  equivalents = {
+    9 => "nine",
+    8 => "eight",
+    7 => "seven",
+    6 => "six",
+    5 => "five",
+    4 => "four",
+    3 => "three",
+    2 => "two",
+    1 => "one",
+    0 => "zero",
+    "nine" => 9,
+    "eight" => 8,
+    "seven" => 7,
+    "six" => 6,
+    "five" => 5,
+    "four" => 4,
+    "three" => 3,
+    "two" => 2,
+    "one" => 1,
+    "zero" => 0
+  }
+  num_array = n.to_s.chars.map(&:to_i)
+  words = num_array.map { |num| equivalents[num] }
+  unbanned_nums = []
+  words.each { |word| word.include?(ban) ? word : unbanned_nums << word }
+
+  unbanned_nums.empty? ? "Banned Number" : unbanned_nums.map { |num| equivalents[num] }.join.to_i
+end
