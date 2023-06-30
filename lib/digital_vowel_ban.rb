@@ -59,8 +59,8 @@ def digital_vowel_ban(n, ban)
   }
   num_array = n.to_s.chars.map(&:to_i)
   words = num_array.map { |num| equivalents[num] }
-  unbanned_nums = []
-  words.each { |word| word.include?(ban) ? word : unbanned_nums << word }
 
+  unbanned_nums = words.reject { |word| word.include?(ban) }
+  
   unbanned_nums.empty? ? "Banned Number" : unbanned_nums.map { |num| equivalents[num] }.join.to_i
 end
