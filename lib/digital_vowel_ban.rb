@@ -34,6 +34,33 @@
 # Notes
 # Every given number will be a positive integer greater than 0.
 
+# def digital_vowel_ban(n, ban)
+#   equivalents = {
+#     9 => "nine",
+#     8 => "eight",
+#     7 => "seven",
+#     6 => "six",
+#     5 => "five",
+#     4 => "four",
+#     3 => "three",
+#     2 => "two",
+#     1 => "one",
+#     0 => "zero"
+#   }
+#   unbanned_words = number_to_word(n, equivalents).reject { |word| word.include?(ban) }
+
+#   unbanned_words.empty? ? "Banned Number" : word_to_number(unbanned_words, equivalents)
+# end
+
+# def number_to_word(number, equivalents)
+#   num_array = number.to_s.chars.map(&:to_i)
+#   words = num_array.map { |num| equivalents[num] }
+# end
+
+# def word_to_number(words, equivalents)
+#   words.map { |word| equivalents.key(word) }.join.to_i
+# end
+
 def digital_vowel_ban(n, ban)
   equivalents = {
     9 => "nine",
@@ -47,17 +74,10 @@ def digital_vowel_ban(n, ban)
     1 => "one",
     0 => "zero"
   }
-  unbanned_words = number_to_word(n, equivalents).reject { |word| word.include?(ban) }
-  
-  unbanned_words.empty? ? "Banned Number" : word_to_number(unbanned_words, equivalents)
-end
 
-def number_to_word(number, equivalents)
-  num_array = number.to_s.chars.map(&:to_i)
-  words = num_array.map { |num| equivalents[num] }
-end
+  digits = n.digits.reverse
+  unbanned_digits = digits.reject { |digit| equivalents[digit].include?(ban) }
 
-def word_to_number(words, equivalents)
-  words.map { |word| equivalents.key(word) }.join.to_i
+  unbanned_digits.empty? ? "Banned Number" : unbanned_digits.join.to_i
 end
 
