@@ -13,3 +13,7 @@
 
 # Notes
 # Check the Resources tab for help.
+
+def numbers_sum(arr)
+  arr.select { |e| e.class == Integer }.sum
+end
