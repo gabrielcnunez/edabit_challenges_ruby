@@ -40,8 +40,6 @@ def profit(a, b)
       a_margin += 1
     elsif (i - a).abs > (i - b).abs
       b_margin += 1
-    else
-      i
     end
   end
   [a_margin, b_margin]
