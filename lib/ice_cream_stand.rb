@@ -33,14 +33,15 @@
 # a and b will never occupy the same spot.
 
 def profit(a, b)
-  a_margin = 0
-  b_margin = 0
+  result = [0, 0]
+
   (0..100).each do |i|
     if (i - a).abs < (i - b).abs
-      a_margin += 1
+      result[0] += 1
     elsif (i - a).abs > (i - b).abs
-      b_margin += 1
+      result[1] += 1
     end
   end
-  [a_margin, b_margin]
+  
+  result
 end
