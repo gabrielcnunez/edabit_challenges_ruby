@@ -25,3 +25,23 @@
 # See the Resources tab for further information on learning string slicing.
 # You are not allowed to concatenate strings together! Results must 
 # be achieved purely through string slicing!
+
+def challenge1(str)
+  str[0, 5]
+end
+
+def challenge2(str)
+  str[-5, 5]
+end
+
+def challenge3(str)
+  str[0..-1].reverse
+end
+
+def challenge4(str)
+  str[0..5].reverse
+end
+
+def challenge5(str)
+  str[-7..].gsub(/(.)./,'\1')
+end

@@ -14,7 +14,7 @@ RSpec.describe "String sliceathon" do
     
     expect(challenge1(nums)).to eq('01234')
     expect(challenge2(nums)).to eq('56789')
-    expect(challenge3(nums)).to eq('98765432410')
+    expect(challenge3(nums)).to eq('9876543210')
     expect(challenge4(nums)).to eq('543210')
     expect(challenge5(nums)).to eq('3579')
   end
