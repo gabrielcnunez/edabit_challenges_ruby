@@ -17,5 +17,7 @@
 # Numbers that end with ".0" are valid.
 
 def letter_at_position(n)
-  (n % 1).zero? && (1..26).cover?(n) ? ('a'.ord + n.round(0) - 1).chr : "invalid"
+  return "invalid" unless (n % 1).zero? && (1..26).cover?(n)
+
+  ('a'.ord + n.round(0) - 1).chr
 end
