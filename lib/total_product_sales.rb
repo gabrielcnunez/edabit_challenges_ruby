@@ -48,3 +48,18 @@
 # Notes
 # The examples above all use the same sales table, but in the 
 # tests the table will vary.
+
+def total_sales(sales_table, product)
+  products = sales_table[0]
+  index = products.index(product)
+
+  return "Product not found" unless index
+
+  total = 0
+
+  sales_table[1..-1].each do |row|
+    total += row[index]
+  end
+
+  total
+end

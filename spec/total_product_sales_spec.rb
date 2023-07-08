@@ -22,9 +22,9 @@ RSpec.describe 'Total product sales' do
       [ 5 ,  3 ,  7 ,  2 ,  3 ]]
     
     expect(total_sales(table1,'A')).to eq(9)
-    expect(total_sales(table1,'A')).to eq(18)
-    expect(total_sales(table1,'A')).to eq(12)
-    expect(total_sales(table1,'A')).to eq('Product not found')
+    expect(total_sales(table1,'B')).to eq(18)
+    expect(total_sales(table1,'C')).to eq(12)
+    expect(total_sales(table1,'D')).to eq('Product not found')
     
     expect(total_sales(table2,'A')).to eq('Product not found')
     expect(total_sales(table2,'W')).to eq(7)
@@ -34,6 +34,6 @@ RSpec.describe 'Total product sales' do
     expect(total_sales(table3,'A')).to eq('Product not found')
     expect(total_sales(table3,'T')).to eq(16)
     expect(total_sales(table3,'Y')).to eq('Product not found')
-    expect(total_sales(table3,'Z')).to eq(25)
+    expect(total_sales(table3,'W')).to eq(25)
   end
 end
