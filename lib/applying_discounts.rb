@@ -15,7 +15,5 @@
 # There won't be any awkward decimal numbers, only 0.5 to deal with.\
 
 def get_discounts(nums, d)
-  nums.map do |num|
-    num * (d.to_i * 0.01)
-  end
+  nums.map { |num| num * (d.to_i * 0.01) }
 end
