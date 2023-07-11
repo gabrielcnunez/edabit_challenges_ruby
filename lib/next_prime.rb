@@ -17,9 +17,7 @@
 require 'prime'
 
 def next_prime(num)
-  if num.prime?
-    num
-  else
-    (num..).find { |i| i.prime? }
-  end
+  return num unless !num.prime?
+
+  (num..).find { |i| i.prime? }
 end
