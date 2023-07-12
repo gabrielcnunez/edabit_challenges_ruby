@@ -32,3 +32,27 @@
 # # => false
 # v.validate("([)]")
 # # => false
+
+class StringValidator
+  OPENING_BRACKETS = ['(', '[', '{']
+  CLOSING_BRACKETS = [')', ']', '}']
+
+  def validate(input_string)
+    stack = []
+    input_string.each_char do |char|
+      if OPENING_BRACKETS.include?(char)
+        stack.push(char)
+      elsif CLOSING_BRACKETS.include?(char)
+        return false if stack.empty? || !matching_bracket?(stack.pop, char)
+      end
+    end
+
+    stack.empty?
+  end
+
+  private
+
+  def matching_bracket?(opening, closing)
+    OPENING_BRACKETS.index(opening) == CLOSING_BRACKETS.index(closing)
+  end
+end
