@@ -13,13 +13,6 @@
 # Notes
 # The input will only be "east" in different formats.
 
-def direction(arr)
-  replacements = {
-    'e' => 'w',
-    'E' => 'W',
-    'a' => 'e',
-    'A' => 'E'
-  }
-  
-  arr.map { |word| word.gsub(Regexp.union(replacements.keys), replacements) }
+def direction(arr)  
+  arr.map { |word| word.tr('eaEA', 'weWE') }
 end
