@@ -25,3 +25,22 @@
 
 # Notes
 # Remember that a N cancels out a S, and an E cancels out a W.
+
+def route_diff(array)
+  x_axis = 0
+  y_axis = 0
+
+  array.each do |direction|
+    if direction == 'N'
+      y_axis += 1
+    elsif direction == 'E'
+      x_axis += 1
+    elsif direction == 'S'
+      y_axis -= 1
+    elsif direction == 'W'
+      x_axis -= 1
+    end
+  end
+
+  array.size - (x_axis.abs + y_axis.abs)
+end
