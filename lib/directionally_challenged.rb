@@ -27,6 +27,12 @@
 # Remember that a N cancels out a S, and an E cancels out a W.
 
 def route_diff(array)
+  array.size - required_moves(array)
+end
+
+private
+
+def required_moves(array)
   x_axis = 0
   y_axis = 0
 
@@ -42,5 +48,5 @@ def route_diff(array)
     end
   end
 
-  array.size - (x_axis.abs + y_axis.abs)
+  x_axis.abs + y_axis.abs
 end
