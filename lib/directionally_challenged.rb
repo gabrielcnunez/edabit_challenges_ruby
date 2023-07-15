@@ -37,13 +37,14 @@ def required_moves(array)
   y_axis = 0
 
   array.each do |direction|
-    if direction == 'N'
+    case direction
+    when 'N'
       y_axis += 1
-    elsif direction == 'E'
+    when 'E'
       x_axis += 1
-    elsif direction == 'S'
+    when 'S'
       y_axis -= 1
-    elsif direction == 'W'
+    when 'W'
       x_axis -= 1
     end
   end
