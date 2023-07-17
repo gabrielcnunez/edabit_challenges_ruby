@@ -21,22 +21,6 @@
 # Notes
 # N/A
 
-# def can_build(digits, arr)
-#   return true if arr.empty?
-
-#   digit_quantity = {}
-#   (0..9).each do |i|
-#     digit_quantity[i] = digits[i]
-#   end
-#   array_quantity = arr.join.chars.tally
-
-#   array_quantity.each do |k,_|
-#     return false if array_quantity[k] > digit_quantity[k.to_i]
-#   end
-
-#   true
-# end
-
 def can_build(digits, arr)
   return true if arr.empty?
 
