@@ -11,3 +11,16 @@
 
 # Notes
 # There will always only be one integer that appears an odd number of times.
+
+# Count of number of each integer in an array
+# Iterate through the quantities of integers to find the one that is odd
+
+def find_odd(arr)
+  quantities = Hash.new(0)
+  arr.each do |num| ## quantities = arr.tally
+    quantities[num] += 1
+  end
+  quantities.each do |k,v|
+    return k if v.odd?
+  end
+end
