@@ -16,11 +16,15 @@
 # Iterate through the quantities of integers to find the one that is odd
 
 def find_odd(arr)
-  quantities = Hash.new(0)
-  arr.each do |num| ## quantities = arr.tally
-    quantities[num] += 1
-  end
-  quantities.each do |k,v|
-    return k if v.odd?
-  end
+  # quantities = Hash.new(0)
+
+  # arr.each do |num| ## quantities = arr.tally
+  #   quantities[num] += 1
+  # end
+
+  # quantities.each do |k,v|
+  #   return k if v.odd?
+  # end
+  quantities = arr.tally
+  quantities.each { |k,v| return k if v.odd? }
 end
