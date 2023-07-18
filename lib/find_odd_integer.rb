@@ -25,6 +25,6 @@ def find_odd(arr)
   # quantities.each do |k,v|
   #   return k if v.odd?
   # end
-  quantities = arr.tally
-  quantities.each { |k,v| return k if v.odd? }
+  # quantities = arr.tally
+  arr.tally.each { |k,v| return k if v.odd? }
 end
