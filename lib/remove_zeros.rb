@@ -22,7 +22,6 @@
 # If the number is 0, 0.0, 000, 00.00, etc... return "0".
 
 def remove_zeros(str)
-  arr = str.split('.')
-
-  arr[1].nil? ? arr[0].to_i.to_s : str.gsub(/\.?0+$/,'').gsub(/(?<= |\A)0+(?=\d)/,'')
+  number = str.to_f.to_s
+  number.end_with?('.0') ? number.to_i.to_s : number
 end
