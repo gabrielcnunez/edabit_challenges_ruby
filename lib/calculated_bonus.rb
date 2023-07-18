@@ -34,18 +34,15 @@
 
 def bonus(days)
   threshold = 32
-  bonus = 0
 
   case days
   when 0..threshold
-    bonus = 0
+    0
   when (threshold + 1)..(threshold + 8)
-    bonus = (days - threshold) * 325
+    (days - threshold) * 325
   when (threshold + 9)..(threshold + 16)
-    bonus = 8 * 325 + (days - (threshold + 8)) * 550
+    8 * 325 + (days - (threshold + 8)) * 550
   else
-    bonus = 8 * 325 + 8 * 550 + (days - (threshold + 16)) * 600
+    8 * 325 + 8 * 550 + (days - (threshold + 16)) * 600
   end
-
-  bonus
 end
