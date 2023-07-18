@@ -20,3 +20,9 @@
 # Return a string.
 # If you get a number with .0 on the end, return the integer value (e.g. return "4" rather than "4.0").
 # If the number is 0, 0.0, 000, 00.00, etc... return "0".
+
+def remove_zeros(str)
+  arr = str.split('.')
+
+  arr[1].nil? ? arr[0].to_i.to_s : str.gsub(/\.?0+$/,'').gsub(/(?<= |\A)0+(?=\d)/,'')
+end
