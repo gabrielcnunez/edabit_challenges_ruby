@@ -20,3 +20,25 @@
 
 # Notes
 # N/A
+
+class Array
+  def square
+    self.map { |i| i**2 }
+  end
+
+  def cube
+    self.map { |i| i**3 }
+  end
+
+  def divisible_by(num)
+    self.select { |i| i % num == 0 }
+  end
+
+  def strictly_above(num)
+    self.select { |i| i > num }
+  end
+
+  def strictly_below(num)
+    self.select { |i| i < num }
+  end
+end
