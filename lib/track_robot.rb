@@ -25,3 +25,41 @@
 # valid characters ., < or >.
 # You will always be passed a string (but the string 
 # might be empty).
+
+def track_robot(str)
+  position = [0, 0]
+  direction = "E"
+
+  str.each_char do |char|
+    if char == "<" && direction == "N"
+      direction = "W"
+    elsif char == "<" && direction == "E"
+      direction = "N"
+    elsif char == "<" && direction == "S"
+      direction = "E"
+    elsif char == "<" && direction == "W"
+      direction = "S"
+    elsif char == ">" && direction == "N"
+      direction = "E"
+    elsif char == ">" && direction == "E"
+      direction = "S"
+    elsif char == ">" && direction == "S"
+      direction = "W"
+    elsif char == ">" && direction == "W"
+      direction = "N"
+    end
+    
+    if direction == "N" && char == "."
+      position[1] += 1
+    elsif direction == "E" && char == "."
+      position[0] += 1
+    elsif direction == "S" && char == "."
+      position[1] -= 1
+    elsif direction == "W" && char == "."
+      position[0] -= 1
+    end
+    
+  end
+
+  position
+end
