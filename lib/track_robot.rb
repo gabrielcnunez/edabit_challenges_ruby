@@ -28,37 +28,26 @@
 
 def track_robot(str)
   position = [0, 0]
-  direction = "E"
+  direction = 0  # 0: east, 1: north, 2: west, 3: south
 
   str.each_char do |char|
-    if char == "<" && direction == "N"
-      direction = "W"
-    elsif char == "<" && direction == "E"
-      direction = "N"
-    elsif char == "<" && direction == "S"
-      direction = "E"
-    elsif char == "<" && direction == "W"
-      direction = "S"
-    elsif char == ">" && direction == "N"
-      direction = "E"
-    elsif char == ">" && direction == "E"
-      direction = "S"
-    elsif char == ">" && direction == "S"
-      direction = "W"
-    elsif char == ">" && direction == "W"
-      direction = "N"
+    case char
+    when "<"
+      direction = (direction + 1) % 4
+    when ">"
+      direction = (direction - 1) % 4
+    when "."
+      case direction
+      when 0 
+        position[0] += 1
+      when 1  
+        position[1] += 1
+      when 2 
+        position[0] -= 1
+      when 3  
+        position[1] -= 1
+      end
     end
-    
-    if direction == "N" && char == "."
-      position[1] += 1
-    elsif direction == "E" && char == "."
-      position[0] += 1
-    elsif direction == "S" && char == "."
-      position[1] -= 1
-    elsif direction == "W" && char == "."
-      position[0] -= 1
-    end
-    
   end
 
   position
