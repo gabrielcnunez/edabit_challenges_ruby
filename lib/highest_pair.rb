@@ -36,12 +36,8 @@ def highest_pair(cards)
     "3" => 12,
     "2" => 13
   }
-  pairs = []
-  cards.tally.each do |card, quantity|
-    if quantity > 1
-      pairs << card
-    end
-  end
   
+  pairs = cards.tally.select { |_, quantity| quantity >= 2 }.keys
   pairs.empty? ? false : [true, pairs.sort_by { |pair| suit_order[pair] }[0]]
 end
+
