@@ -19,3 +19,8 @@
 # Each string will only have one (lowercase) letter.
 # If given an empty array, return an empty array.
 
+def sort_by_letter(arr)
+  return [] if arr.empty?
+
+  arr.sort_by { |str| str[/[a-z]/] }
+end
