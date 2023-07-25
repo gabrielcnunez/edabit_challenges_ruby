@@ -12,3 +12,6 @@
 # Notes
 # There will be at least two numbers in the array.
 
+def second_largest(arr)
+  arr.sort[-2]
+end
