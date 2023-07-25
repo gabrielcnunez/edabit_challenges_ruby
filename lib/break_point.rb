@@ -27,7 +27,7 @@
 # Check the Resources tab for a hint.
 
 def break_point(num)
-  digits = num.to_s.chars.map { |digit| digit.to_i }
+  digits = num.to_s.chars.map(&:to_i)
   (0..(digits.size - 2)).each do |i|
     if digits[0..i].sum == digits[i + 1, digits.size - (i +1)].sum
       return true
