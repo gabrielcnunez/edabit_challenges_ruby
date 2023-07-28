@@ -19,11 +19,11 @@
 # The input of the function is at least one number.
 
 def sum_dig_prod(*arr)
-  prod_array = arr.sum.to_s.chars.map(&:to_i).inject(:*)
+  sum_array = arr.sum
   
-  while prod_array.abs >= 10
-    prod_array = prod_array.to_s.chars.map(&:to_i).inject(:*)
+  while sum_array >= 10
+    sum_array = sum_array.digits.inject(:*)
   end
 
-  prod_array
+  sum_array
 end
