@@ -18,12 +18,11 @@
 # If len is zero, return the original list.
 
 def sel_reverse(arr, len)
-  return arr if len == 0
-  
+  return arr if len.zero?
+
   results_array = []
 
   arr.each_slice(len) { |slice| results_array << slice}
 
   results_array.flat_map(&:reverse)
-  # require 'pry'; binding.pry
 end
