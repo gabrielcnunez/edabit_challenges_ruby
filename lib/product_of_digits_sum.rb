@@ -17,3 +17,13 @@
 
 # Notes
 # The input of the function is at least one number.
+
+def sum_dig_prod(*arr)
+  prod_array = arr.sum.to_s.chars.map(&:to_i).inject(:*)
+  
+  while prod_array.abs >= 10
+    prod_array = prod_array.to_s.chars.map(&:to_i).inject(:*)
+  end
+
+  prod_array
+end
