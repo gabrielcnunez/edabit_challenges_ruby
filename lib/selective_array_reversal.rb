@@ -20,9 +20,7 @@
 def sel_reverse(arr, len)
   return arr if len.zero?
 
-  results_array = []
+  nested_arrays = arr.each_slice(len).to_a
 
-  arr.each_slice(len) { |slice| results_array << slice}
-
-  results_array.flat_map(&:reverse)
+  nested_arrays.flat_map(&:reverse)
 end
