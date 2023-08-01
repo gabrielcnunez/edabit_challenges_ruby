@@ -19,3 +19,8 @@
 
 # Notes
 # N/A
+
+def club_entry(word)
+  word =~ /(.)\1/
+  ($1.ord - 96) * 4
+end
