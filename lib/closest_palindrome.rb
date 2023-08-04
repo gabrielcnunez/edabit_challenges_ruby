@@ -17,22 +17,26 @@
 # If the number itself is a palindrome, return that number.
 
 def closest_palindrome(num)
-  return num if num.to_s == num.to_s.reverse
+  return num if palindrome?(num)
 
   high_pal = higher_palindrome(num)
   low_pal = lower_palindrome(num)
-  
+
   num - low_pal <= high_pal - num ? low_pal : high_pal
 end
 
 def higher_palindrome(num)
   num += 1
-  num += 1 until num.to_s == num.to_s.reverse
+  num += 1 until palindrome?(num)
   num
 end
 
 def lower_palindrome(num)
   num -= 1
-  num -= 1 until num.to_s == num.to_s.reverse
+  num -= 1 until palindrome?(num)
   num
+end
+
+def palindrome?(num)
+  num.to_s == num.to_s.reverse
 end
