@@ -13,3 +13,13 @@
 # Both values will be positive.
 # The LCM is the smallest integer that is divisible by both 
 # numbers such that the remainder is zero.
+
+def lcm(n1, n2)
+  if n2 % n1 == 0
+    n2
+  elsif n1 % n2 == 0
+    n1
+  else
+    n1 * n2
+  end
+end
