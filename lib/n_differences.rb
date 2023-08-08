@@ -27,3 +27,18 @@
 
 # Notes
 # Each array will have at least two elements.
+
+# Find the difference between each integer in array in their order
+# Store differences in an updated array
+# 
+
+def n_differences(arr)
+  if arr.length == 1
+    arr[0]
+  else
+    new_array = arr[1..-1].map.with_index do |e, index|
+      e - arr[index]
+    end
+    n_differences(new_array)
+  end
+end
