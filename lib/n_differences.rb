@@ -33,12 +33,8 @@
 # 
 
 def n_differences(arr)
-  if arr.length == 1
-    arr[0]
-  else
-    new_array = arr[1..-1].map.with_index do |e, index|
-      e - arr[index]
-    end
-    n_differences(new_array)
+  while arr.length > 1
+    arr = arr.each_cons(2).map { |a, b| b - a }
   end
+  arr[0]
 end
