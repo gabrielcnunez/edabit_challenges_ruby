@@ -25,3 +25,19 @@
 # From 16 to 17 is regular, so 1 * 30 = 30
 # From 17 to 18 is overtime, so 1 * 30 * 1.8 = 54
 # 30 + 54 = $84.00
+
+def over_time(arr)
+  reg_pay_with_ot = (arr[1] - arr[0] - (arr[1] - 17)) * arr[2].to_f
+  ot_pay_with_reg = (arr[1] - 17) * arr[2].to_f * arr[3]
+  ot_pay = (arr[1] - arr[0]) * arr[2].to_f * arr[3]
+  reg_pay = (arr[1] - arr[0]) * arr[2].to_f
+
+
+  if arr[1] > 17 && arr[0] <= 17
+    "$" + '%.2f' % (reg_pay_with_ot + ot_pay_with_reg).round(2)
+  elsif arr[0] > 17
+    "$" + '%.2f' % ot_pay.round(2)
+  else
+    "$" + '%.2f' % reg_pay.round(2)
+  end
+end
