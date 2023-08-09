@@ -27,17 +27,22 @@
 # 30 + 54 = $84.00
 
 def over_time(arr)
-  reg_pay_with_ot = (arr[1] - arr[0] - (arr[1] - 17)) * arr[2].to_f
-  ot_pay_with_reg = (arr[1] - 17) * arr[2].to_f * arr[3]
-  ot_pay = (arr[1] - arr[0]) * arr[2].to_f * arr[3]
-  reg_pay = (arr[1] - arr[0]) * arr[2].to_f
-
-
-  if arr[1] > 17 && arr[0] <= 17
-    "$" + '%.2f' % (reg_pay_with_ot + ot_pay_with_reg).round(2)
-  elsif arr[0] > 17
-    "$" + '%.2f' % ot_pay.round(2)
+  if arr[1] >= 17 && arr[0] < 17
+    normal = 17 - arr[0]
+    ot = arr[1] - 17
+  elsif arr[1] >= 17 && arr[0] >= 17
+    normal = 0
+    ot = arr[1] - arr[0]
   else
-    "$" + '%.2f' % reg_pay.round(2)
+    normal = arr[1] - arr[0]
+    ot = 0
   end
+
+  total_pay = ((normal*arr[2]) + (ot*arr[2]*arr[3])).round(2)
+  
+  "$"+"%.2f" % total_pay
 end
+
+
+
+
