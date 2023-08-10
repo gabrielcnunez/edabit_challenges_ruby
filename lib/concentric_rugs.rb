@@ -37,3 +37,13 @@
 # Notes
 # n >= 0.
 # Always increment by 1 each "layer" outwards you travel.
+
+def generate_rug(n)
+  center = (n - 1) / 2
+
+  (0...n).map do |i|
+    (0...n).map do |j|
+      [i - center, j - center].map(&:abs).max
+    end
+  end
+end
