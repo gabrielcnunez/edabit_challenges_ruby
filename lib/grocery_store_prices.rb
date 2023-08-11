@@ -11,5 +11,5 @@
 # See if you can use RegExp to solve (but it's not necessary).
 
 def get_prices(arr)
-  arr.map { |item| item.gsub(/\D/, '').to_i / 100.0 }
+  arr.map { |item| item.gsub(/[^\d.]/, '').to_f }
 end
