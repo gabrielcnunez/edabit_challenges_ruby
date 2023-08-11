@@ -24,14 +24,12 @@
 # Capital letters are included.
 
 def letter_distance(str1, str2)
-  abs_values = []
-  abs_values << (str1.size - str2.size).abs
+  abs_diff = 0
+  abs_diff += (str1.size - str2.size).abs
 
   str1.size > str2.size ? str1 = str1[0, str2.size] : str2 = str2[0, str1.size]
-  
-  values1 = str1.split('').map(&:ord)
-  values2 = str2.split('').map(&:ord)
 
-  values1.each_with_index { |value, i| abs_values << (value - values2[i]).abs }
-  abs_values.sum
+  (str1.size).times { |i| abs_diff += (str1[i].ord - str2[i].ord).abs }
+
+  abs_diff
 end
