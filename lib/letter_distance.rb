@@ -22,3 +22,15 @@
 # Always start comparing the two strings from their first letter.
 # Excess letters are not counted towards distance.
 # Capital letters are included.
+
+def letter_distance(str1, str2)
+  abs_str1 = str1.split('').map(&:ord)
+  abs_str2 = str2.split('').map(&:ord)
+
+  abs_str1.size > abs_str2.size ? abs_str1 = abs_str1[0, abs_str2.size] : abs_str2 = abs_str2[0, abs_str1.size]
+
+  abs_values = abs_str1.map.with_index { |value, i| (value - abs_str2[i]).abs }
+
+  abs_values << (str1.size - str2.size).abs
+  abs_values.sum
+end
