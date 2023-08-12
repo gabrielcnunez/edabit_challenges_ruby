@@ -13,3 +13,13 @@
 
 # Notes
 # All strings given will be lowercase.
+
+def map_letters(word)
+  ltrs_mapped = Hash.new {|h,k| h[k] = [] }
+
+  word.each_char.with_index do |char, index|
+    ltrs_mapped[char.to_sym].push(index)
+  end
+  
+  ltrs_mapped
+end
