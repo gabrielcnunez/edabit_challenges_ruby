@@ -18,7 +18,7 @@ def map_letters(word)
   ltrs_mapped = Hash.new {|h,k| h[k] = [] }
 
   word.each_char.with_index do |char, index|
-    ltrs_mapped[char.to_sym] << (index)
+    ltrs_mapped[char.to_sym] << index
   end
   
   ltrs_mapped
