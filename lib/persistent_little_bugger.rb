@@ -15,13 +15,9 @@
 # Notes
 # N/A
 
-def bugger(num)
-  muliplied_counter = 0
+def bugger(num, persistence = 0)
+  return persistence if num < 10
 
-  while num >= 10
-    num = num.digits.reduce(:*)
-    muliplied_counter += 1
-  end
-
-  muliplied_counter
+  new_num = num.digits.reduce(:*)
+  bugger(new_num, persistence + 1)
 end
