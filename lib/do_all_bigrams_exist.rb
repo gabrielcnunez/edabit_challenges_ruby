@@ -19,9 +19,5 @@
 # If the array of words is empty, return false.
 
 def can_find(bigrams, words)
-  bigrams.each do |bigram|
-    return false if words.any? { |word| word.include? bigram } == false
-  end
-
-  true
+  bigrams.all? { |bigram| words.any? { |word| word.include?(bigram) } }
 end
