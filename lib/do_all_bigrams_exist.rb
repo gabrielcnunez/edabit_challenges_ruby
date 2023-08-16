@@ -18,3 +18,10 @@
 # A bigram is string of two consecutive characters in the same word.
 # If the array of words is empty, return false.
 
+def can_find(bigrams, words)
+  bigrams.each do |bigram|
+    return false if words.any? { |word| word.include? bigram } == false
+  end
+
+  true
+end
