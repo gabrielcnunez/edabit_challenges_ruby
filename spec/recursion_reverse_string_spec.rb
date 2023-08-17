@@ -11,13 +11,13 @@ RSpec.describe 'Recursion: Reverse a String' do
     end
 
     expect(reverse("hello")).to eq("olleh")
-    expect(count).to_not eq(1, "Function needs to be called more than once.")
+    expect(count).to_not eq(1)
     
     count = 0
     expect(reverse("world")).to eq("dlrow")
-    expect(count).to_not eq(1, "Function needs to be called more than once.")
+    expect(count).to_not eq(1)
   
     expect(reverse("a")).to eq("a")
-    expect(reverse("")).to eq("", "An empty string should return an empty string.")
+    expect(reverse("")).to eq("")
   end
 end
