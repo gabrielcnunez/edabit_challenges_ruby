@@ -17,10 +17,5 @@
 def palindrome(str)
   return true if str.size <= 1
 
-  if str[0] != str[-1]
-    false
-  else
-    new_str = str[1..-2]
-    palindrome(new_str)
-  end
+  str[0] != str[-1] ? false : palindrome(str[1..-2])
 end
