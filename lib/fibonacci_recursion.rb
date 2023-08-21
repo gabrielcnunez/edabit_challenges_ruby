@@ -25,12 +25,22 @@
 # If you're getting stuck, try looking up the math behind the Fibonacci sequence to see if that inspires you.
 # Check the Resources tab for relevant information!
 
-def fib(n)
-  sequence = [0, 1]
+# def fib(n)
+#   sequence = [0, 1]
   
-  until sequence[n]
-    sequence << sequence[-1] + sequence[-2]
-  end
+#   until sequence[n]
+#     sequence << sequence[-1] + sequence[-2]
+#   end
+  
+#   sequence[n]
+# end
 
-  sequence[n]
+def fib(n)
+  if n == 0
+    0
+  elsif n == 1
+    1
+  else
+    fib(n - 1) + fib(n - 2)
+  end
 end
