@@ -24,3 +24,13 @@
 # This is called a "recursive function".
 # If you're getting stuck, try looking up the math behind the Fibonacci sequence to see if that inspires you.
 # Check the Resources tab for relevant information!
+
+def fib(n)
+  sequence = [0, 1]
+  
+  until sequence[n]
+    sequence << sequence[-1] + sequence[-2]
+  end
+
+  sequence[n]
+end
