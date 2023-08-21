@@ -15,3 +15,11 @@
 # Return nil if the function takes no parameters.
 # If the function only takes in one parameter, the first_arg and last_arg 
 # functions should return the same value.
+
+def first_arg(*args)
+  args.first
+end
+
+def last_arg(*args)
+  args.last
+end
