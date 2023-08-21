@@ -14,8 +14,8 @@
 def fizz_buzz(int)
   (1..int).map do |i|
     result = ''
-    result += "Fizz" if i % 3 == 0
-    result += "Buzz" if i % 5 == 0
+    result += 'Fizz' if i % 3 == 0
+    result += 'Buzz' if i % 5 == 0
     result.empty? ? i : result
   end
 end
