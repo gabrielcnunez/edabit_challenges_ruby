@@ -46,14 +46,11 @@
 
 def express_factors(n)
   factors = prime_factors(n)
-  expression = []
 
-  factors.uniq.each do |factor|
+  factors.uniq.map do |factor|
     count = factors.count(factor)
-    expression << (count > 1 ? "#{factor}^#{count}" : factor.to_s)
-  end
-
-  expression.join(' x ')
+    count > 1 ? "#{factor}^#{count}" : factor.to_s
+  end.join(' x ')
 end
 
 def prime_factors(n)
