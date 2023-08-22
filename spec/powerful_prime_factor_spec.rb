@@ -2,7 +2,7 @@ require 'rspec'
 require './lib/powerful_prime_factor'
 
 RSpec.describe 'Powerful Prime Factor' do
-  it 'takes int).to eq(returns string expressing how number is made by multiplying prime factors' do
+  it 'takes int & returns string expressing how number is made by multiplying prime factors' do
     expect(express_factors(2)).to eq("2")
     expect(express_factors(4)).to eq("2^2")
     expect(express_factors(10)).to eq("2 x 5")
