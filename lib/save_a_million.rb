@@ -24,11 +24,9 @@
 def million_in_month(first_month, multiplier)
   current_balance = first_month
   number_of_months = 1
-  current_paycheck = first_month
 
   until current_balance >= 1e6
-    current_paycheck *= multiplier
-    current_balance += current_paycheck
+    current_balance += first_month * (multiplier ** number_of_months)
     number_of_months += 1
   end
 
