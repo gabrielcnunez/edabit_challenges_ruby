@@ -20,3 +20,17 @@
 # Notes
 # Don't forget to return the result in the number of months.
 # Return when your savings are greater than 1,000,000.
+
+def million_in_month(first_month, multiplier)
+  current_balance = first_month
+  number_of_months = 1
+  current_paycheck = first_month
+
+  until current_balance >= 1e6
+    current_paycheck *= multiplier
+    current_balance += current_paycheck
+    number_of_months += 1
+  end
+
+  number_of_months
+end
