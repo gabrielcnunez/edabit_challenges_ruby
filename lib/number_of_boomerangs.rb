@@ -18,12 +18,20 @@
 # // 5 boomerangs (from left to right): [1, 7, 1], [7, 1, 7], [1, 7, 1], [7, 1, 7], and [1, 7, 1]
 
 # Examples
-# countBoomerangs([9, 5, 9, 5, 1, 1, 1]) ➞ 2
+# count_boomerangs([9, 5, 9, 5, 1, 1, 1]) ➞ 2
 
-# countBoomerangs([5, 6, 6, 7, 6, 3, 9]) ➞ 1
+# count_boomerangs([5, 6, 6, 7, 6, 3, 9]) ➞ 1
 
-# countBoomerangs([4, 4, 4, 9, 9, 9, 9]) ➞ 0
+# count_boomerangs([4, 4, 4, 9, 9, 9, 9]) ➞ 0
 
 # Notes
 # [5, 5, 5] (triple identical digits) is NOT considered a boomerang because the middle digit is 
 # identical to the first and last.
+
+def count_boomerangs(arr)
+  count = 0
+  
+  arr.each_cons(3) { |sub| sub[0] == sub[2] && sub[0] != sub[1] ? count += 1 : sub}
+
+  count
+end
