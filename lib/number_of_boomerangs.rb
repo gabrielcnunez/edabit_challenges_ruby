@@ -31,7 +31,7 @@
 def count_boomerangs(arr)
   count = 0
   
-  arr.each_cons(3) { |sub| sub[0] == sub[2] && sub[0] != sub[1] ? count += 1 : sub}
+  arr.each_cons(3) { |sub| count +=1 if sub[0] == sub[2] && sub[0] != sub[1] }
 
   count
 end
