@@ -13,3 +13,14 @@
 # Notes
 # No tests will include empty arrays or require negative percentages.
 # Note that you need to return a string.
+
+def take_down_average(arr)
+  score_sum = arr.map { |e| e.chop.to_f }.sum
+  down_average = score_sum / arr.size - 5
+
+  raw_down_score = (down_average * (arr.size + 1) - score_sum)
+  down_score = raw_down_score - raw_down_score.to_i == 0.5 ? raw_down_score.floor : raw_down_score.round
+
+  "#{down_score}%"
+end
+
