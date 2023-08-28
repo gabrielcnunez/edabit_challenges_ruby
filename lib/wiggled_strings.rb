@@ -70,8 +70,7 @@
 def wiggle_string(str)
   wig_str = []
 
-  (0..str.length).each { |i| wig_str << (' ' * i) + str }
-  (0..str.length - 1).reverse_each { |i| wig_str << (' ' * i) + str }
-  
-  wig_str
+  (0..str.size).each { |i| wig_str << (' ' * i) + str }
+
+  wig_str + wig_str[0, str.size].reverse
 end
