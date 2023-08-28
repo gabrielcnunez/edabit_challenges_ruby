@@ -12,12 +12,16 @@
 # Notes
 # The subarrays should be returned in the order of each element's first appearance in the given array.
 
+# def advanced_sort(arr)
+#   sub_arrays = Hash.new { |h, k| h[k] = [] }
+
+#   arr.each do |item|
+#     sub_arrays[item] << item
+#   end
+
+#   sub_arrays.values
+# end
+
 def advanced_sort(arr)
-  sub_arrays = Hash.new { |h, k| h[k] = [] }
-
-  arr.each do |item|
-    sub_arrays[item] << item
-  end
-
-  sub_arrays.values
+  arr.group_by(&:itself).values
 end
