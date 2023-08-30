@@ -101,5 +101,29 @@ def solution(s)
     end
   end
 
-  require 'pry'; binding.pry
+  sorted_arr = (photo_sorter(krakow_photos) + photo_sorter(london_photos) + photo_sorter(flori_photos)).sort
+  sorted_arr.map { |str| str.gsub(/^\d{3}/, '') }.join("\n")
+end
+
+def photo_sorter(arr)
+  date_regex = /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/
+  time_regex = /(?:[01]\d|2[0123]):(?:[012345]\d):(?:[012345]\d)/
+
+  chrono_sort = arr.sort_by do |str|
+    date_match = str.match(date_regex)
+    time_match = str.match(time_regex)
+  
+    [date_match ? date_match[1] : '', time_match ? time_match[0] : '']
+  end
+
+  name_formatter(chrono_sort)
+end
+
+def name_formatter(arr)
+  arr.each_with_index.map do |str, index|
+    number = str.split(',').first[0..2]
+    city = str.split(",")[1].strip
+    file_extension = str.split(",").first.split(".").last
+    arr.size >= 10 ? "#{number}#{city}#{format('%02d', index + 1)}.#{file_extension}" : "#{number}#{city}#{(index + 1)}.#{file_extension}"
+  end
 end
