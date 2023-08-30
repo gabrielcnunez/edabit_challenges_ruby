@@ -85,5 +85,21 @@ correctness.
 =end
 
 def solution(s)
-  
+  krakow_photos = []
+  london_photos = []
+  flori_photos = []
+
+  s.split("\n").each_with_index do |str, i|
+    numbered_photo = (i + 100).to_s + str
+
+    if numbered_photo.include?('Krakow')
+      krakow_photos << numbered_photo
+    elsif numbered_photo.include?('Florianopolis')
+      flori_photos << numbered_photo
+    else
+      london_photos << numbered_photo
+    end
+  end
+
+  require 'pry'; binding.pry
 end
