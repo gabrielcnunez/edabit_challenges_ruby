@@ -10,3 +10,19 @@
 
 # Notes
 # N/A
+
+def correct_signs(str)
+  arr = str.split
+
+  (0..(arr.size - 3)).step(2) do |i|
+    left = arr[i]
+    operator = arr[i + 1]
+    right = arr[i + 2]
+
+    if !eval(left + operator + right)
+      return false
+    end
+  end
+
+  return true
+end
