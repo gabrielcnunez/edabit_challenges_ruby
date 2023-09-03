@@ -39,3 +39,18 @@
 # Notes
 # Test has at least one question.
 
+def possibly_perfect(key, answers)
+  incomplete_ans = 0
+  right_ans = 0
+  wrong_ans = 0
+  
+  (0..key.size - 1).each do |i|
+    if key[i] != '_'
+      key[i] == answers[i] ? right_ans += 1 : wrong_ans += 1
+    else
+      incomplete_ans += 1
+    end
+  end
+  
+  right_ans + incomplete_ans == key.size || wrong_ans + incomplete_ans == key.size
+end
