@@ -14,13 +14,27 @@
 # Notes
 # The last number in an array is trivially strictly larger than all numbers that follow it (no numbers follow it).
 
-def larger_than_right(arr)
-  return arr if arr.size == 1
+# def larger_than_right(arr)
+#   return arr if arr.size == 1
 
-  if arr.any? { |int| int > arr[0] }
-    new_arr = arr.reject { |i| i < arr[0]}
-    larger_than_right(new_arr.drop(1))
-  else
-    arr.uniq.size == 1 ? arr.uniq : arr
+#   if arr.any? { |int| int > arr[0] }
+#     new_arr = arr.reject { |i| i < arr[0]}
+#     larger_than_right(new_arr.drop(1))
+#   else
+#     arr.uniq.size == 1 ? arr.uniq : arr
+#   end
+# end
+
+def larger_than_right(arr)
+  result = []
+  max_right = nil
+
+  (arr.size - 1).downto(0) do |i|
+    if max_right.nil? || arr[i] > max_right
+      result.unshift(arr[i])
+      max_right = arr[i]
+    end
   end
+
+  result
 end
