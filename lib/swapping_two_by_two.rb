@@ -24,8 +24,25 @@
 #   char_swap.join
 # end
 
-def swap_two(str)
-  char_array = str.split('')
+# def swap_two(str)
+#   char_array = str.split('')
 
-  char_array.each_slice(4).map { |a| a.size == 4 ? a[2] + a[3] + a[0] + a[1] : a }.join
+#   char_array.each_slice(4).map { |a| a.size == 4 ? a[2] + a[3] + a[0] + a[1] : a }.join
+# end
+
+def swap_two(str)
+  result = ''
+  i = 0
+
+  while i < str.size
+    if i + 3 < str.size
+      result += str[i+2] + str[i+3] + str[i] + str[i+1]
+      i += 4
+    else
+      result += str[i..-1]
+      break
+    end
+  end
+
+  result
 end
