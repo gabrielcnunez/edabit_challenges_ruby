@@ -14,12 +14,18 @@
 # Notes
 # Keep leftover strings in the same order.
 
+# def swap_two(str)
+#   char_swap = []
+
+#   str.split('').each_slice(4) do |a|
+#     a.size == 4 ? char_swap << a[2] << a[3] << a[0] << a[1] : char_swap << a
+#   end
+
+#   char_swap.join
+# end
+
 def swap_two(str)
-  char_swap = []
+  char_array = str.split('')
 
-  str.split('').each_slice(4) do |a|
-    a.size == 4 ? char_swap << a[2] << a[3] << a[0] << a[1] : char_swap << a
-  end
-
-  char_swap.join
+  char_array.each_slice(4).map { |a| a.size == 4 ? a[2] + a[3] + a[0] + a[1] : a }.join
 end
