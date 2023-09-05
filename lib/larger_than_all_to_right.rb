@@ -13,3 +13,16 @@
 
 # Notes
 # The last number in an array is trivially strictly larger than all numbers that follow it (no numbers follow it).
+
+def larger_than_right(arr)
+  return arr if arr.size == 1
+  return arr.uniq if arr.uniq.size == 1
+
+  # arr.all? { |e| e < arr[0] } ? arr : larger_than_right(arr.select { |i| i > arr[0] })
+  if arr.any? { |int| int > arr[0] }
+    new_arr = arr.reject { |i| i < arr[0]}
+    larger_than_right(new_arr.drop(1))
+  else
+    arr
+  end
+end
