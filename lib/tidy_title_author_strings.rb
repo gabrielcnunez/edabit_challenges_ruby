@@ -35,3 +35,11 @@
 
 # Notes
 # Some of these entries have excess white space. Remove this white space in your final output.
+
+def tidy_books(arr)
+  arr.map do |e|
+    x = e[0].strip.split('-')
+
+    [x[0].rstrip, x[1].lstrip]
+  end
+end
