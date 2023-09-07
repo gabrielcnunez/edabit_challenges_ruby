@@ -16,3 +16,9 @@
 # Notes
 # Input is a positive integer and base = 2, 8, or 16.
 # Please use recursion to solve this.
+
+HEX = "0123456789abcdef"
+
+def integer_to_string(int, base)
+	int > 0 ? integer_to_string(int / base, base) + HEX[int % base] : ""
+end
