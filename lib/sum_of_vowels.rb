@@ -22,13 +22,13 @@
 def sum_of_vowels(str)
   vowel_sum = 0
 
-  str.each_char do |char|
+  str.upcase.each_char do |char|
     case char
-    when 'A', 'a'
+    when 'A'
       vowel_sum += 4
-    when 'E', 'e'
+    when 'E'
       vowel_sum += 3
-    when 'I', 'i'
+    when 'I'
       vowel_sum += 1
     end
   end
