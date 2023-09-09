@@ -35,3 +35,17 @@ def sum_of_vowels(str)
 
   vowel_sum
 end
+
+# def sum_of_vowels(str)
+#   str.upcase.split('').map do |char|
+#     if char == 'A'
+#       4
+#     elsif char == 'E'
+#       3
+#     elsif char == 'I'
+#       1
+#     else
+#       0
+#     end
+#   end.sum
+# end
