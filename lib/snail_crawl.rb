@@ -23,3 +23,11 @@
 # Notes
 # The depth is a positive integer.
 # If the time is less than one minute it still counts as one minute.
+
+# ((depth - 150) / 120.0).floor() * 40 + (depth / )
+
+def cal(depth)
+  setbacks = ((depth - 150) / 120.0).ceil()
+  
+  depth > 150 ? setbacks * 40 + ((depth - setbacks * 120) / 5.0).ceil() : (depth / 5.0).ceil()
+end
