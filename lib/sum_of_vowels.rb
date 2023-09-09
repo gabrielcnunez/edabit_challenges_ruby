@@ -18,3 +18,20 @@
 
 # Notes
 # Vowels are case-insensitive (e.g. A = 4 and a = 4).
+
+def sum_of_vowels(str)
+  vowel_sum = 0
+
+  str.each_char do |char|
+    case char
+    when 'A', 'a'
+      vowel_sum += 4
+    when 'E', 'e'
+      vowel_sum += 3
+    when 'I', 'i'
+      vowel_sum += 1
+    end
+  end
+
+  vowel_sum
+end
