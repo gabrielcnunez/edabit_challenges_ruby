@@ -16,9 +16,9 @@
 # N/A
 
 def primorial(n)
-  prime_nums = (2..n ** 2).select { |i| is_prime?(i) }.first(n)
+  prime_nums = (2..1 + n ** 2).select { |i| is_prime?(i) }.first(n)
 
-  n == 1 ? 2 : prime_nums.reduce(1, :*)
+  prime_nums.reduce(1, :*)
 end
 
 def is_prime?(num)
