@@ -14,3 +14,23 @@
 
 # Notes
 # N/A
+
+def primorial(n)
+  prime_nums = (2..n ** 2).select { |i| is_prime?(i) }.first(n)
+
+  n == 1 ? 2 : prime_nums.reduce(1, :*)
+end
+
+def is_prime?(num)
+  return true if num <= 3
+
+  return false if num % 2 == 0 || num % 3 == 0
+
+  i = 5
+  while i * i <= num
+    return false if num % i == 0 || num % (i + 2) == 0
+    i += 6
+  end
+
+  return true
+end
