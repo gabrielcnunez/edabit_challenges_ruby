@@ -16,21 +16,13 @@
 # N/A
 
 def primorial(n)
-  prime_nums = (2..1 + n ** 2).select { |i| is_prime?(i) }.first(n)
+  prime_nums = []
+  num = 2
 
-  prime_nums.reduce(1, :*)
-end
-
-def is_prime?(num)
-  return true if num <= 3
-
-  return false if num % 2 == 0 || num % 3 == 0
-
-  i = 5
-  while i * i <= num
-    return false if num % i == 0 || num % (i + 2) == 0
-    i += 6
+  while prime_nums.size < n
+    prime_nums << num if (2..Math.sqrt(num)).none? { |i| (num % i).zero? }
+    num += 1
   end
 
-  return true
+  prime_nums.reduce(1, :*)
 end
