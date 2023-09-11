@@ -14,10 +14,14 @@
 # Do not count boundary numbers, since they only have one left/right neighbor.
 # If no such numbers exist, return an empty array.
 
+# def mini_peaks(arr)
+#   the_peaks = []
+#   require 'pry'; binding.pry
+#   arr.each_cons(3) { |a| the_peaks << a[1] if a[1] > a[0] && a[1] > a[2] }
+
+#   the_peaks 
+# end
+
 def mini_peaks(arr)
-  the_peaks = []
-
-  arr.each_cons(3) { |a| the_peaks << a[1] if a[1] > a[0] && a[1] > a[2] }
-
-  the_peaks
+  arr.each_cons(3).filter_map { |a, b, c| b if b > a && b > c }
 end
