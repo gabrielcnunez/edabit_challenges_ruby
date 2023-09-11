@@ -19,18 +19,8 @@
 # N/A
 
 def fret_freq(string, fret)
-  case string
-  when 1
-    (329.63 * (2 ** (fret / 12.0))).round(2)
-  when 2
-    (246.94 * (2 ** (fret / 12.0))).round(2)
-  when 3
-    (196.00 * (2 ** (fret / 12.0))).round(2)
-  when 4
-    (146.83 * (2 ** (fret / 12.0))).round(2)
-  when 5
-    (110.00 * (2 ** (fret / 12.0))).round(2)
-  when 6
-    (82.41 * (2 ** (fret / 12.0))).round(2)
-  end
+  string_frequencies = [329.63, 246.94, 196.00, 146.83, 110.00, 82.41]
+  string_frequency = string_frequencies[string - 1]
+  frequency = string_frequency * 2**(fret / 12.0)
+  frequency.round(2)
 end
