@@ -21,6 +21,6 @@
 def fret_freq(string, fret)
   string_frequencies = [329.63, 246.94, 196.00, 146.83, 110.00, 82.41]
   string_frequency = string_frequencies[string - 1]
-  frequency = string_frequency * 2**(fret / 12.0)
-  frequency.round(2)
+
+  (string_frequency * 2 ** (fret / 12.0)).round(2)
 end
