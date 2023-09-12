@@ -20,8 +20,11 @@
 
 def squares(a, b)
   square_ints = 0
-  
-  (a..b).each { |num| square_ints += 1 if num % Math.sqrt(num) == 0 }
+
+  (a..b).each do |num| 
+    sqrt = Math.sqrt(num)
+    square_ints += 1 if sqrt.to_i ** 2 == num
+  end
 
   square_ints
 end
