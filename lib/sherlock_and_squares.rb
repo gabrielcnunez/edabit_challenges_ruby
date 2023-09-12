@@ -17,3 +17,11 @@
 
 # Notes
 # N/A
+
+def squares(a, b)
+  square_ints = 0
+  
+  (a..b).each { |num| square_ints += 1 if num % Math.sqrt(num) == 0 }
+
+  square_ints
+end
