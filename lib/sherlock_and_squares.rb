@@ -33,5 +33,5 @@ def squares(a, b)
   largest_square = Math.sqrt(b).to_i
   smallest_sqaure = Math.sqrt(a).ceil
 
-  count = largest_square - smallest_sqaure + 1
+  square_ints_count = largest_square - smallest_sqaure + 1
 end
