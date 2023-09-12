@@ -18,13 +18,20 @@
 # Notes
 # N/A
 
+# def squares(a, b)
+#   square_ints = 0
+
+#   (a..b).each do |num| 
+#     sqrt = Math.sqrt(num)
+#     square_ints += 1 if sqrt.to_i ** 2 == num
+#   end
+
+#   square_ints
+# end
+
 def squares(a, b)
-  square_ints = 0
+  largest_square = Math.sqrt(b).to_i
+  smallest_sqaure = Math.sqrt(a).ceil
 
-  (a..b).each do |num| 
-    sqrt = Math.sqrt(num)
-    square_ints += 1 if sqrt.to_i ** 2 == num
-  end
-
-  square_ints
+  count = largest_square - smallest_sqaure + 1
 end
