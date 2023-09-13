@@ -28,3 +28,18 @@
 # If the house is too big for the garden, return "House too big."
 # If the house is too high, return "No permission."
 # If the house is too small (for the windows and door to fit), return "House too small."
+
+def we_have_house(hh, hw, hd, rh)
+  return "House too big." if hw > 44 || hd > 44
+  return "No permission." if hh + rh > 20
+  return "House too small." if hw < 15 || hd < 11
+
+  side_windows = 72
+  front_windows_top_door = 39
+  bottom_door = 6
+
+  yellow_paint = (hh - 2) * 2 * (hw + hd) - side_windows - front_windows_top_door + (hw * rh)
+  gray_paint = 2 * 2 * (hw + hd) - bottom_door
+
+  "Yellow: #{yellow_paint}, Gray: #{gray_paint}"
+end
