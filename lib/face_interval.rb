@@ -24,3 +24,9 @@
 # Notes
 # Arrays won't contain any duplicate numbers.
 # If you're not given an array, return ":/"
+
+def face_interval(arr)
+  return ':/' if !arr.is_a?(Array)
+
+  arr.include?(arr.max - arr.min) ? ':)' : ':('
+end
