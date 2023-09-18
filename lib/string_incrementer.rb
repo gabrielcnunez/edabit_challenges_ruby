@@ -13,3 +13,26 @@
 
 # Notes
 # N/A
+
+def increment_string(str)
+  if str[-1].ord.between?(48, 57)
+    word = []
+    number = []
+    
+    str.each_char { |char| char.ord.between?(48, 57) ? number << char : word << char}
+    
+    number_index = number.index { |x| x != '0' }
+    unchanged_number = number[number_index..-1].join.to_i
+    changed_number = unchanged_number + 1
+    
+    if changed_number.to_s.size == unchanged_number.to_s.size
+      number[number_index..-1] = changed_number.to_s.split('')
+    else
+      number[number_index - 1] == '0' ? number[number_index - 1..-1] = changed_number.to_s.split('') : (number[number_index - 1].to_i + 1).to_s
+    end
+
+    (word + number).join
+  else
+    str + '1'
+  end
+end
