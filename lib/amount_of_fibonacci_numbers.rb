@@ -30,3 +30,13 @@
 
 # Notes
 # N/A
+
+def amount_fib(num)
+  sequence = [0, 1]
+
+  until sequence[-1] > num
+    sequence << sequence[-1] + sequence[-2]
+  end
+
+  sequence.count { |x| x < num } 
+end
