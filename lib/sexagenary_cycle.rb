@@ -47,5 +47,5 @@ STEMS = ['Metal', 'Metal', 'Water', 'Water', 'Wood', 'Wood', 'Fire', 'Fire', 'Ea
 BRANCHES = ['Monkey', 'Rooster', 'Dog', 'Pig', 'Rat', 'Ox', 'Tiger', 'Rabbit', 'Dragon', 'Snake', 'Horse', 'Sheep' ]
 
 def sexagenary(n)
-  STEMS[n % 10] + ' ' + BRANCHES[n % 12]
+  "#{STEMS[n % 10]} #{BRANCHES[n % 12]}"
 end
