@@ -42,3 +42,10 @@
 
 # Notes
 # N/A
+
+STEMS = ['Metal', 'Metal', 'Water', 'Water', 'Wood', 'Wood', 'Fire', 'Fire', 'Earth', 'Earth']
+BRANCHES = ['Monkey', 'Rooster', 'Dog', 'Pig', 'Rat', 'Ox', 'Tiger', 'Rabbit', 'Dragon', 'Snake', 'Horse', 'Sheep' ]
+
+def sexagenary(n)
+  STEMS[n % 10] + ' ' + BRANCHES[n % 12]
+end
