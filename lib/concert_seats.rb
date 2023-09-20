@@ -56,6 +56,15 @@
 # Numbers must be strictly greater than the number in front of it.
 # All numbers within the arrays will be whole numbers greater than or equal to zero.
 
-def can_see_stage(arr)
-  
+def can_see_stage(rows)
+  (rows.size - 1).times do |i|
+    front_row = rows[i]
+    back_row = rows[i + 1]
+
+    front_row.each_with_index do |seat, index|
+      return false if seat >= back_row[index]
+    end
+  end
+
+  true
 end

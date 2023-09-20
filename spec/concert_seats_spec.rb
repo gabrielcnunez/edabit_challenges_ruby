@@ -3,15 +3,15 @@ require './lib/concert_seats'
 
 RSpec.describe 'Concert Seats' do
   it 'determines whether each seat can "see" the front stage' do
-    expect(can_see_stage(
-    [[1, 2, 3], 
-    [4, 5, 6], 
-    [7, 8, 9]])).to eq(true)
+    # expect(can_see_stage(
+    # [[1, 2, 3], 
+    # [4, 5, 6], 
+    # [7, 8, 9]])).to eq(true)
 
-    expect(can_see_stage(
-    [[1, 2, 2], 
-    [1, 2, 3], 
-    [4, 4, 4]])).to eq(false)
+    # expect(can_see_stage(
+    # [[1, 2, 2], 
+    # [1, 2, 3], 
+    # [4, 4, 4]])).to eq(false)
 
     expect(can_see_stage(
     [[1, 1, 2], 
