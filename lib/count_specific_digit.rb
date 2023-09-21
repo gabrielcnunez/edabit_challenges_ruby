@@ -17,5 +17,8 @@
 # min <= max
 
 def digit_occurrences(min, max, digit)
-  
+  range_array = (min..max).to_a
+  joined_range = range_array.join
+
+  joined_range.count(digit.to_s)
 end
