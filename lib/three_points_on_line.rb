@@ -18,5 +18,13 @@
 # Note the special case of a vertical line.
 
 def same_line(arr)
-  
+  x_total = 0
+  y_total = 0
+
+  arr.each do |sub|
+    x_total += sub[0]
+    y_total += sub[1]
+  end
+
+  x_total == y_total || x_total == 0 || y_total == 0
 end
