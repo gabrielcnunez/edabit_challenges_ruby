@@ -29,16 +29,15 @@
 # N/A
 
 def make_box(n)
-  return ['#'] if n == 1
-
   hash_box = []
-  hash_box << '#' * n
+
+  hash_box << '#' * n if n >= 1
 
   (n - 2).times do
     hash_box << '#' + ' ' * (n - 2) + '#'
   end
 
-  hash_box << '#' * n
+  hash_box << '#' * n if n >= 2
 
   hash_box
 end
