@@ -55,5 +55,7 @@
 # the matrix powers M^n converge (as n increases) to a matrix where all rows are identical.
 
 def is_prob_matrix(arr)
+  return false if arr.flatten.any? { |e| e < 0 || e > 1 }
   
+  arr.size == arr[0].size && arr.all? { |e| e.sum == 1 }
 end
