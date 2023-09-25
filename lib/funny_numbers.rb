@@ -33,5 +33,12 @@
 # Given number and power will always >=1
 
 def funny_numbers(n, p)
+  nums_array = n.digits.reverse
+  sum = 0
+
+  nums_array.each_with_index do |e, i|
+    sum += e ** (i + p)
+  end
   
+  sum % n == 0 ? sum / n : nil
 end
