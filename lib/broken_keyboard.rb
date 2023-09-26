@@ -17,5 +17,9 @@
 # Letters will all be in lower case.
 
 def find_broken_keys(str1, str2)
+  keys_broken = []
+
+  (0..str1.size).each { |i| keys_broken << str1[i] if str1[i] != str2[i]}
   
+  keys_broken.uniq
 end
