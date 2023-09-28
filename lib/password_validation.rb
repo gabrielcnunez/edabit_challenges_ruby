@@ -24,11 +24,10 @@
 # N/A
 
 def validate_password(str)
-  return false if str.size < 6 || str.size > 24
-  return false if !str.match?(/[A-Z]/) || !str.match?(/[a-z]/) || !str.match?(/[0-9]/)
-  return false if str.match?(/[^a-zA-Z0-9!@#$%^&*()+=_\-{}\[\]:;"'?<>,.]/)
-
-  str[2..-1].each_char.with_index(2) { |char, i| return false if char == str[i - 1] && char == str[i - 2] }
+  return false unless str.size.between?(6, 24)
+  return false unless str.match?(/[A-Z]/) && str.match?(/[a-z]/) && str.match?(/[0-9]/)
+  return false unless str.match?(/[a-zA-Z0-9!@#$%^&*()+=_\-{}\[\]:;"'?<>,.]/)
+  return false if /(.)\1\1/.match?(str)
 
   true
 end
