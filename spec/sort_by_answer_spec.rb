@@ -6,7 +6,7 @@ RSpec.describe 'Sort by Answer' do
     expect(sort_by_answer(["1 + 1", "1 + 7", "1 + 5", "1 + 4"])).to eq(["1 + 1", "1 + 4", "1 + 5", "1 + 7"])
     expect(sort_by_answer(["2 + 2", "2 - 2", "2 x 2", "2 / 2"])).to eq(["2 - 2", "2 / 2", "2 + 2", "2 x 2"])
     expect(sort_by_answer(["1 x 1", "3 x 3", "-1 x -1", "-3 x -3"])).to eq(["1 x 1", "-1 x -1", "3 x 3", "-3 x -3"])
-    expect(sort_by_answer(["4 - 4", "2 - 2", "5 - 5", "10 - 10"])).to eq(["4 - 4", "2 - 2", "5 - 5", "10 - 10"], "The answers are all the same, so return the elements in the order they came")
+    expect(sort_by_answer(["4 - 4", "2 - 2", "5 - 5", "10 - 10"])).to eq(["4 - 4", "2 - 2", "5 - 5", "10 - 10"])
     expect(sort_by_answer(["2 + 2", "2 - 2", "2 x 1"])).to eq(["2 - 2", "2 x 1", "2 + 2"])
     expect(sort_by_answer(["4 - 4", "2 - 2", "5 + 5", "10 - 10"])).to eq(["4 - 4", "2 - 2", "10 - 10", "5 + 5"])
     expect(sort_by_answer(["49 x -6", "21 - 25", "-11 / 26", "6 + -37", "1 / 49", "22 x -46", "-7 / 10", "16 + -34", "-37 x -27", "23 / -41"])).to eq(["22 x -46", "49 x -6", "6 + -37", "16 + -34", "21 - 25", "-7 / 10", "23 / -41", "-11 / 26", "1 / 49", "-37 x -27"])

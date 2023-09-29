@@ -15,5 +15,13 @@
 # The symbol used for multiplication is x instead of *.
 
 def sort_by_answer(arr)
-  
+  sorted_arr = arr.sort_by.with_index do |exp, index|
+    split_exp = exp.split(' ')
+    first_num, second_num = split_exp[0].to_f, split_exp[2].to_f
+    operator = split_exp[1] == 'x' ? '*' : split_exp[1]
+    
+    result = first_num.method(operator).(second_num)
+
+    [result, index]
+  end
 end
