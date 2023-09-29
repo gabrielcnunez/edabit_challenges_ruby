@@ -11,10 +11,14 @@
 # Notes
 # Test cases will always have exactly one unique number while all others are the same.
 
-def unique(arr)
-  unique_nums = arr.uniq
-  first_num = unique_nums[0]
-  second_num = unique_nums[1]
+# def unique(arr)
+#   unique_nums = arr.uniq
+#   first_num = unique_nums[0]
+#   second_num = unique_nums[1]
 
-  arr.count(first_num) == arr.size - 1 ? second_num : first_num
+#   arr.count(first_num) == arr.size - 1 ? second_num : first_num
+# end
+
+def unique(arr)
+  arr.find { |num| arr.count(num) == 1 }
 end
