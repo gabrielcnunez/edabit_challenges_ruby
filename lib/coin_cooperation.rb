@@ -36,5 +36,23 @@
 # which you can learn more about in the Resources tab.
 
 def get_coin_balances(arr1, arr2)
-  
+  player1 = 3
+  player2 = 3
+
+  arr1.each_with_index do |str, i|
+    if str == 'share' && arr2[i] == 'steal'
+      player1 -= 1
+      player2 += 3
+    elsif str == 'steal' && arr2[i] == 'share'
+      player1 += 3
+      player2 -= 1
+    elsif str == 'share' && arr2[i] == 'share'
+      player1 += 2
+      player2 += 2
+    else
+      nil
+    end
+  end
+
+  [player1, player2]
 end
