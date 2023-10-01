@@ -17,5 +17,11 @@
 # All characters other than letters should always be returned (see example #4).
 
 def hangman(str, arr)
-  
+  x = str.chars.map do |char|
+    if char.match?(/[a-zA-Z]/)
+      arr.include?(char.downcase) ? char : '-'
+    else
+      char
+    end
+  end.join
 end
