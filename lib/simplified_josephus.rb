@@ -22,13 +22,7 @@ def josephus(people)
   until survivors.size == 1
     spared = []
 
-    survivors.each_slice(2) do |a|
-      if a.size == 2
-        spared << a[0]
-      else
-        spared.unshift(a[0])
-      end
-    end
+    survivors.each_slice(2) { |a| a.size == 2 ? spared << a[0] : spared.unshift(a[0]) }
 
     survivors = spared
   end
