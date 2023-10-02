@@ -20,16 +20,16 @@ def josephus(people)
   survivors = (1..people).to_a
   
   until survivors.size == 1
-    ready_for_execution = survivors
     spared = []
-    ready_for_execution.each_slice(2) do |a| 
+
+    survivors.each_slice(2) do |a|
       if a.size == 2
         spared << a[0]
       else
         spared.unshift(a[0])
       end
     end
-    
+
     survivors = spared
   end
 
