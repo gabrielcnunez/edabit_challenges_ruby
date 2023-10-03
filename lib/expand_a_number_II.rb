@@ -20,13 +20,9 @@ def expanded_form(num)
   decimal_nums = divided_nums[1]
   form_string_array = []
 
-  whole_nums.each_char.with_index do |char, i|
-    form_string_array << char + '0' * (whole_nums.size - (i + 1)) if char != '0'
-  end
-
-  decimal_nums.each_char.with_index do |char, i|
-    form_string_array << char + '/1' + ('0' * (i + 1)) if char != '0'
-  end
+  whole_nums.each_char.with_index { |char, i| form_string_array << char + '0' * (whole_nums.size - (i + 1)) if char != '0' }
+  
+  decimal_nums.each_char.with_index { |char, i| form_string_array << char + '/1' + ('0' * (i + 1)) if char != '0' }
 
   form_string_array.join(' + ')
 end
