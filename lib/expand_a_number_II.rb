@@ -15,5 +15,18 @@
 # N/A
 
 def expanded_form(num)
-  
+  divided_nums = num.to_s.split('.')
+  whole_nums = divided_nums[0]
+  decimal_nums = divided_nums[1]
+  form_string_array = []
+
+  whole_nums.each_char.with_index do |char, i|
+    form_string_array << char + '0' * (whole_nums.size - (i + 1)) if char != '0'
+  end
+
+  decimal_nums.each_char.with_index do |char, i|
+    form_string_array << char + '/1' + ('0' * (i + 1)) if char != '0'
+  end
+
+  form_string_array.join(' + ')
 end
