@@ -19,5 +19,8 @@
 # any of the test email addresses actually exists.
 
 def get_name(address)
-  
+  left_side = address.split('@')[0]
+
+  left_side.scan(/[a-zA-Z]/).join
+  # require 'pry'; binding.pry
 end
