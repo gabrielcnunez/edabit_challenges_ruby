@@ -17,5 +17,14 @@
 # positive nor negative).
 
 def alternate_pos_neg(arr)
-  
+  return false if arr.any?(0)
+  return true if arr.size == 1
+
+  arr.each_with_index do |num, i|
+    if !arr[i + 1].nil?
+      return false if num.positive? == arr[i + 1].positive?
+    end
+  end
+
+  true
 end
