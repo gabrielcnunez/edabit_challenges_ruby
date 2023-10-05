@@ -14,15 +14,19 @@
 # Notes
 # Only count the coordinates that are in the circle, not the ones that are on the border.
 
+# def points_in_circle(points, centerX, centerY, radius)
+#   num_of_points = 0
+
+#   points.each do |point|
+#     x_coord = point[:x]
+#     y_coord = point[:y]
+
+#     num_of_points += 1 if (x_coord - centerX) ** 2 + (y_coord - centerY) ** 2 < radius ** 2
+#   end
+
+#   num_of_points
+# end
+
 def points_in_circle(points, centerX, centerY, radius)
-  num_of_points = 0
-
-  points.each do |point|
-    x_coord = point[:x]
-    y_coord = point[:y]
-
-    num_of_points += 1 if (x_coord - centerX) ** 2 + (y_coord - centerY) ** 2 < radius ** 2
-  end
-
-  num_of_points
+  points.map { |e| (e[:x] - centerX) ** 2 + (e[:y] - centerY) ** 2 < radius ** 2 ? 1 : 0 }.sum
 end
