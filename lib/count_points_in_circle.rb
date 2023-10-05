@@ -18,10 +18,10 @@ def points_in_circle(points, centerX, centerY, radius)
   num_of_points = 0
 
   points.each do |e|
-    x_coord = e.values[0]
-    y_coord = e.values[1]
+    x_coord = e[:x]
+    y_coord = e[:y]
 
-    num_of_points += 1 if ((x_coord - centerX) ** 2) + ((y_coord - centerY) ** 2) < radius ** 2
+    num_of_points += 1 if (x_coord - centerX) ** 2 + (y_coord - centerY) ** 2 < radius ** 2
   end
 
   num_of_points
