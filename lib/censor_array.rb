@@ -13,5 +13,5 @@
 # N/A
 
 def censor_string(str, arr, sym)
-  
+  str.split.map { |e| arr.include?(e) ? e.gsub(/./, "#{sym}") : e }.join(' ')
 end
