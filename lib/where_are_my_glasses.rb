@@ -19,7 +19,5 @@
 # All elements in the list are strings.
 
 def find_glasses(arr)
-  arr.find_index do |str|
-    str.match?(/O-+O/)
-  end
+  arr.find_index { |str| str.match?(/O-+O/) }
 end
