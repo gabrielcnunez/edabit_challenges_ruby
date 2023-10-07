@@ -18,6 +18,8 @@
 # All lists will include one valid pair of glasses because I swear I dropped them around here somewhere ...
 # All elements in the list are strings.
 
-def find_glasses(str)
-  
+def find_glasses(arr)
+  arr.find_index do |str|
+    str.match?(/O-+O/)
+  end
 end
