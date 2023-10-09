@@ -21,5 +21,10 @@
 # If the input range is 0, return 0.
 
 def remap(value, low1, high1, low2, high2)
+  return 0 if high1 - low1 == 0
+
+  range_point = (value - low1) / (high1 - low1).to_f
+  new_range_diff = (low2 - high2).abs
   
+  high2 > low2 ? range_point * new_range_diff + low2 : (1 - range_point) * new_range_diff + high2
 end
