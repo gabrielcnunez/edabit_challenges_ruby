@@ -27,5 +27,7 @@ def nom_nom(arr)
   return arr if arr.size == 1 || arr[0] <= arr[1]
 
   new_arr = [arr[0] + arr[1]]
-  arr[2] ? nom_nom(new_arr + arr[2..-1]) : nom_nom(new_arr)
+  new_arr = new_arr + arr[2..-1] if arr[2]
+  
+  nom_nom(new_arr)
 end
