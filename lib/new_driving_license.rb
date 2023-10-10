@@ -27,5 +27,15 @@
 # N/A
 
 def license(me, agents, others)
-  
+  people_waiting = others.split(' ')
+  people_waiting << me
+  people_waiting.sort!
+  minutes_to_license = 0
+
+  people_waiting.each_slice(agents) do |group|
+    minutes_to_license += 20
+    break if group.include?(me)
+  end
+
+  minutes_to_license
 end
