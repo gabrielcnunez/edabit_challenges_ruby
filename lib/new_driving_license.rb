@@ -29,12 +29,7 @@
 def license(me, agents, others)
   people_waiting = (others + ' ' + me).split(' ')
   people_waiting.sort!
-  minutes_to_license = 0
+  place_in_line = people_waiting.index(me)
 
-  people_waiting.each_slice(agents) do |group|
-    minutes_to_license += 20
-    break if group.include?(me)
-  end
-
-  minutes_to_license
+  agents <= place_in_line ? (place_in_line / agents + 1) * 20 : 20
 end
