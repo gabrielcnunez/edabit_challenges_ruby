@@ -27,8 +27,7 @@
 # N/A
 
 def license(me, agents, others)
-  people_waiting = others.split(' ')
-  people_waiting << me
+  people_waiting = (others + ' ' + me).split(' ')
   people_waiting.sort!
   minutes_to_license = 0
 
