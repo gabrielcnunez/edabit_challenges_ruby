@@ -17,5 +17,19 @@
 # important for grammatical correctness, are discounted in the input phrases.
 
 def inverter(str, type)
+  str_array = str.split(' ')
 
+  if type == 'P'
+    str_array[0].downcase!
+    phrase_inverted = str_array.reverse!
+    phrase_inverted[0].capitalize!
+
+    phrase_inverted.join(' ')
+  else
+    str_array[0].downcase!
+    words_inverted = str_array.map(&:reverse)
+    words_inverted[0].capitalize!
+
+    words_inverted.join(' ')
+  end
 end
