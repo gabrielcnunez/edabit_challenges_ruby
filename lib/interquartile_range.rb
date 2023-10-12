@@ -44,5 +44,27 @@
 # the way described in the description, which is taken from the description given on khanacademy.com (see the Resources tab).
 
 def iqr(arr)
+  sorted_arr = arr.sort
+  arr_size = sorted_arr.size
+
+  if arr_size.odd?
+    q_one_array = sorted_arr[0..arr_size / 2 - 1]
+    q_three_array = sorted_arr[arr_size / 2 + 1..-1]
+    q_len = arr_size / 2
+
+    q_one = (q_one_array[(q_len - 1) / 2] + q_one_array[q_len / 2]) / 2.0
+    q_three = (q_three_array[(q_len - 1) / 2] + q_three_array[q_len / 2]) / 2.0
+
+    q_three - q_one
+  else
+    arr_median = (sorted_arr[arr_size / 2 - 1] + sorted_arr[arr_size / 2]) / 2.0
+    q_one_array = sorted_arr.find_all { |num| num <= arr_median }
+    q_three_array = sorted_arr.find_all { |num| num >= arr_median }
+    q_len = arr_size / 2
   
+    q_one = (q_one_array[(q_len - 1) / 2] + q_one_array[q_len / 2]) / 2.0
+    q_three = (q_three_array[(q_len - 1) / 2] + q_three_array[q_len / 2]) / 2.0
+    
+    q_three - q_one
+  end
 end
