@@ -28,15 +28,20 @@
 # The given number will always be a positive integer (there are no 
 # exceptions to handle).
 
+# def snakefill(n)
+#   snake_size = 1
+#   game_board = n * n
+#   meals = -1
+
+#   while snake_size <= game_board
+#     snake_size *= 2
+#     meals += 1
+#   end
+
+#   meals
+# end
+
 def snakefill(n)
-  game_board = n * n
-  snake_size = 1
-  meals = -1
-
-  while game_board >= snake_size
-    meals += 1
-    snake_size *= 2
-  end
-
-  meals
+	(2 * Math.log2(n)).floor
 end
+
