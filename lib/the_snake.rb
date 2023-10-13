@@ -29,5 +29,14 @@
 # exceptions to handle).
 
 def snakefill(n)
-  
+  game_board = n * n
+  snake_size = 1
+  meals = -1
+
+  while game_board >= snake_size
+    meals += 1
+    snake_size *= 2
+  end
+
+  meals
 end
