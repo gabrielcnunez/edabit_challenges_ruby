@@ -21,18 +21,19 @@
 # Assume a and b never take the same number of steps to reach 1.
 
 def collatz(a, b)
-  a_steps = 0
-  b_steps = 0
-
-  until a == 1
-    a.even? ? a = a / 2 : a = a * 3 + 1
-    a_steps += 1
-  end
-
-  until b == 1
-    b.even? ? b = b / 2 : b = b * 3 + 1
-    b_steps += 1
-  end
+  a_steps = collatz_steps(a)
+  b_steps = collatz_steps(b)
 
   a_steps < b_steps ? 'a' : 'b'
+end
+
+def collatz_steps(n)
+  steps = 0
+
+  until n == 1
+    n.even? ? n = n / 2 : n = n * 3 + 1
+    steps += 1
+  end
+
+  steps
 end
