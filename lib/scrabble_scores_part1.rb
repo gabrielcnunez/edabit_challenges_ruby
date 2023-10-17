@@ -70,14 +70,7 @@ def best_words(arr)
     'z'	=> 10
   }
 
-  highest_score = arr.map do |word|
-    sum = 0
-    word.each_char.sum { |char| sum += letter_scores[char] }
-    
-    sum
-  end.max
+  high_score = arr.map { |word| word.each_char.sum { |char| letter_scores[char] } }.max
 
-  arr.find_all do |word|
-    word.each_char.map { |char| letter_scores[char] }.sum == highest_score
-  end
+  arr.find_all { |word| word.each_char.map { |char| letter_scores[char] }.sum == high_score }
 end
