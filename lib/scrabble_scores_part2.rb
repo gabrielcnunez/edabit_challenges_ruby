@@ -63,6 +63,49 @@
 # Notes
 # N/A
 
-def best_start(arr, word)
-  
+def best_start(row, word)
+  letter_scores = {
+    'a' => 1,
+    'b' => 3,
+    'c'	=> 3,
+    'd'	=> 2,
+    'e'	=> 1,
+    'f'	=> 4,
+    'g'	=> 2,
+    'h'	=> 4,
+    'i'	=> 1,
+    'j'	=> 8,
+    'k'	=> 5,
+    'l'	=> 2,
+    'm'	=> 3,
+    'n'	=> 1,
+    'o'	=> 1,
+    'p'	=> 3,
+    'q'	=> 10,
+    'r'	=> 1,
+    's'	=> 1,
+    't'	=> 1,
+    'u'	=> 1,
+    'v'	=> 4,
+    'w'	=> 4,
+    'x'	=> 8,
+    'y'	=> 4,
+    'z'	=> 10
+  }
+
+  high_score = 0
+  index_pos = 0
+
+  row.each_cons(word.size).with_index do |arr, index|
+    word_score = word.chars.map.with_index do |char, i|
+      arr[i] == 'TL' ? letter_scores[char] * 3 : letter_scores[char]
+    end.sum
+    word_score *= 2 if arr.include?('DW')
+    if word_score > high_score
+      high_score = word_score
+      index_pos = index
+    end
+  end
+
+  index_pos
 end
