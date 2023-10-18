@@ -100,11 +100,9 @@ def best_start(row, word)
     word_score = word.chars.map.with_index do |char, i|
       arr[i] == 'TL' ? letter_scores[char] * 3 : letter_scores[char]
     end.sum
+  
     word_score *= 2 if arr.include?('DW')
-    if word_score > high_score
-      high_score = word_score
-      index_pos = index
-    end
+    high_score, index_pos = word_score > high_score ? [word_score, index] : [high_score, index_pos]
   end
 
   index_pos
