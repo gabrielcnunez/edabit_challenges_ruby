@@ -12,10 +12,23 @@
 # Notes
 # You can expect a valid string for all test cases.
 
+# def reverse(str)
+#   reverse_string = ""
+
+#   (str.size - 1).downto(0) { |i| reverse_string += str[i] }
+
+#   reverse_string
+# end
+
 def reverse(str)
-  reverse_string = ""
+  left = 0
+  right = str.length - 1
 
-  (str.size - 1).downto(0) { |i| reverse_string += str[i] }
+  while left < right
+    str[left], str[right] = str[right], str[left]
+    left += 1
+    right -= 1
+  end
 
-  reverse_string
+  str
 end
