@@ -13,5 +13,9 @@
 # You can expect a valid string for all test cases.
 
 def reverse(str)
-  
+  reverse_string = ""
+
+  str.each_char { |char| reverse_string.prepend(char) }
+
+  reverse_string
 end
