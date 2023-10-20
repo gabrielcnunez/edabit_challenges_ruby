@@ -55,9 +55,31 @@
 # Notes
 # N/A
 
-def wrong_number(arr)
-  broken_arr = nil
+# def wrong_number(arr)
+#   broken_arr = nil
+#   arr.each { |sub| broken_arr = sub if sub[0..-2].sum != sub[-1] }
 
-  arr.each { |sub| broken_arr = sub if sub[0..-2].sum != sub[-1] }
-  require 'pry'; binding.pry
+#   left_num = broken_arr[0]
+#   middle_num = broken_arr[1]
+#   right_num = broken_arr[2]
+#   total_sum = broken_arr[3]
+#   left_diff = middle_num - left_num
+#   right_diff = right_num - middle_num
+
+#   if left_diff == right_diff
+#     left_num + middle_num + right_num
+#   else
+#     require 'pry'; binding.pry
+#   end
+# end
+
+CORRECT = [
+  [1, 2, 3, 6],
+  [4, 5, 6, 15],
+  [7, 8, 9, 24],
+  [12, 15, 18, 45]
+]
+
+def wrong_number(arr)
+  0.upto(3) { |i| 0.upto(3) { |j| return CORRECT[i][j] if arr[i][j] != CORRECT[i][j] } }
 end
