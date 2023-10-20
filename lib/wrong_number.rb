@@ -56,5 +56,8 @@
 # N/A
 
 def wrong_number(arr)
-  
+  broken_arr = nil
+
+  arr.each { |sub| broken_arr = sub if sub[0..-2].sum != sub[-1] }
+  require 'pry'; binding.pry
 end
