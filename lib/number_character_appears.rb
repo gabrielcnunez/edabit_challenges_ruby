@@ -19,5 +19,8 @@
 # Ignore case (note that capitalization, in both the sentence and character itself, in examples #1 & #2).
 
 def char_appears(sentence, char)
-  
+  sentence_array = sentence.downcase.split
+  letter = char.downcase
+
+  sentence_array.map { |word| word.count(letter) }
 end
