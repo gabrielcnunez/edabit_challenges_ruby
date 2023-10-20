@@ -15,7 +15,7 @@
 def reverse(str)
   reverse_string = ""
 
-  str.each_char { |char| reverse_string.prepend(char) }
+  (str.size - 1).downto(0) { |i| reverse_string += str[i] }
 
   reverse_string
 end
