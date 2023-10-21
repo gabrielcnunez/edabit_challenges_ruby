@@ -30,5 +30,22 @@
 # N/A
 
 def validate_card(num)
+  digits_array = num.digits
   
+  return false if digits_array.size < 14 || digits_array.size > 19
+
+  check_digit = digits_array.shift
+
+  doubled_digits = digits_array.map.with_index do |digit, index|
+    if index.even?
+      digit = digit *= 2
+      digit.digits.size == 2 ? digit.digits.sum : digit
+    else
+      digit
+    end
+  end
+
+  digits_sum = doubled_digits.sum
+  
+  10 - digits_sum.digits.reverse.last == check_digit
 end
