@@ -65,5 +65,18 @@
 # If the input is already a square matrix, just return that matrix.
 
 def complete_square(arr)
-  
+  num_rows = arr.size
+  num_cols = arr[0].size
+
+  return arr if num_rows == num_cols
+
+  if num_rows > num_cols
+    arr.each { |e| (num_rows - num_cols).times { |i| e << 0 } }
+  else
+    new_row = []
+    num_cols.times { |i| new_row << 0 }
+    (num_cols - num_rows).times { |i| arr << new_row}
+  end
+
+  arr
 end
