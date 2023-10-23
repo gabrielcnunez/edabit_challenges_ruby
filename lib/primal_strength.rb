@@ -22,5 +22,21 @@
 # more complicated than this. You are all welcome to make a challenge based on cryptographically strong primes.
 
 def primal_strength(num)
-  
+  upper_prime = num + 1
+  lower_prime = num - 1
+
+  upper_prime += 1 until is_prime?(upper_prime)
+  lower_prime -= 1 until is_prime?(lower_prime)
+
+  if upper_prime - num > num - lower_prime
+    'Weak'
+  elsif upper_prime - num < num - lower_prime
+    'Strong'
+  else
+    'Balanced'
+  end
+end
+
+def is_prime?(num)
+  (2..Math.sqrt(num)).none? { |i| num % i == 0 }
 end
