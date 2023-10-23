@@ -17,5 +17,17 @@
 # Check the Resources for help.
 
 def valid_credit_card(num)
-  
+  num_array = num.digits
+
+  doubled_nums = num_array.map.with_index do |digit, index|
+    if index.odd?
+      digit = digit *= 2
+      digit.digits.size == 2 ? digit - 9 : digit
+    else
+      digit
+    end
+  end
+
+  nums_sum = doubled_nums.sum
+  nums_sum % 10 == 0
 end
