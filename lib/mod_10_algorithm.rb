@@ -21,7 +21,7 @@ def valid_credit_card(num)
 
   doubled_nums = num_array.map.with_index do |digit, index|
     if index.odd?
-      digit = digit *= 2
+      digit *= 2
       digit.digits.size == 2 ? digit - 9 : digit
     else
       digit
