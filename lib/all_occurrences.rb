@@ -15,6 +15,14 @@
 # Arrays are zero-indexed.
 # Values in the array will be value-types (don't need to worry about nested arrays).
 
+# def get_indices(arr, element)
+#   arr.map.with_index { |e, i| i if e == element }.compact
+# end
+
 def get_indices(arr, element)
-  arr.map.with_index { |e, i| i if e == element }.compact
+  indices = []
+
+  arr.each_with_index { |e, i| indices << i if e == element }
+
+  indices
 end
