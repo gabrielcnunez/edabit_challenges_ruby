@@ -16,5 +16,5 @@
 # Values in the array will be value-types (don't need to worry about nested arrays).
 
 def get_indices(arr, element)
-
+  arr.map.with_index { |e, i| i if e == element }.compact
 end
