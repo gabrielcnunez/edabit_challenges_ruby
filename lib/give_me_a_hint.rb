@@ -26,5 +26,24 @@
 # Maintain capitalisation.
 
 def grant_the_hint(txt)
+  words_array = txt.split
+  hints_array = []
+  current_sentence = words_array.map { |word| word.gsub(/\S/, '_') }.join(' ')
+  hints_array << current_sentence
   
+  while current_sentence.include?('_')
+    next_hint = current_sentence.split.map.with_index do |word, i|
+      if word.include?('_')
+        next_letter_index = word.index('_')
+        word.sub('_', words_array[i][next_letter_index])
+      else
+        word
+      end
+    end.join(' ')
+
+    current_sentence = next_hint
+    hints_array << next_hint
+  end
+
+  hints_array
 end
