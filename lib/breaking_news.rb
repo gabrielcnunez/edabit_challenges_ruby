@@ -38,5 +38,10 @@
 # See the Tests tab for more examples.
 
 def news_at_ten(str, n)
-  
+  txt_with_padding = ' ' * n + str + ' ' * n
+  scroll = []
+
+  txt_with_padding.chars.each_cons(n) { |chars| scroll << chars.join }
+
+  scroll
 end
