@@ -17,8 +17,17 @@ def rpn(arr)
   arr.each do |e|
     if e.is_a?(String)
       operands = eval_stack.pop(2)
-      result = eval(operands[0].to_s + e + operands[1].to_s)
-      eval_stack << result
+      
+      case e
+      when '+'
+        eval_stack << operands[0] + operands[1]
+      when '-'
+        eval_stack << operands[0] - operands[1]
+      when '*'
+        eval_stack << operands[0] * operands[1]
+      when '/'
+        eval_stack << operands[0] / operands[1]
+      end
     else
       eval_stack << e
     end
