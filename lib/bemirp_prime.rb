@@ -31,5 +31,36 @@
 # 6 upside-down is 9 and vice-versa. 0, 1, and 8 are unchanged when flipped. The remaining five digits are unflippable.
 
 def bemirp(num)
-  
+  if is_prime?(num)
+    emirp_prime = num.digits.join.to_i
+
+    if is_prime?(emirp_prime)
+      unflippable_digits = ['2', '3', '4', '5', '7']
+      return 'E' if unflippable_digits.any? { |digit| num.to_s.include?(digit) }
+      bemirp_prime = flip_digits(num)
+
+      is_prime?(bemirp_prime) ? 'B' : 'E'
+    else
+      'P'
+    end
+  else
+    'C'
+  end
+end
+
+def is_prime?(num)
+  (2..Math.sqrt(num)).none? { |i| num % i == 0 }
+end
+
+def flip_digits(num)
+  num.digits.reverse.map do |digit|
+    case digit
+    when 6
+      9
+    when 9
+      6
+    else
+      digit
+    end
+  end.join.to_i
 end
