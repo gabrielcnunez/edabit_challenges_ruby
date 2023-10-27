@@ -15,6 +15,12 @@
 # The length of test arrays will always be at least two.
 # Tests will be in one particular case (upper or lower but never both).
 
-def missing_letter(arr)
+# Ashley
+# 
 
+def missing_letter(arr)
+  arr.each_cons(2) do |a, b|
+    return (b.ord - 1).chr if b.ord - a.ord != 1
+  end
+  # require 'pry'; binding.pry
 end
