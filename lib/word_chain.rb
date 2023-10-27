@@ -21,5 +21,13 @@
 # All words will be in lower case.
 
 def is_word_chain(words)
+  words.each_cons(2) do |a, b|
+    return false if a[0].size != a[1].size
 
+    same_letters = a.split('') & b.split('')
+
+    return false if same_letters.size != a.size - 1
+  end
+
+  true
 end
