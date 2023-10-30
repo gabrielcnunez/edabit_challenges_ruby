@@ -13,17 +13,13 @@
 # N/A
 
 def prime_pair_arr(num)
-  # possible_primes = []
-
-  # (3..num - 3).each { |n| possible_primes << n if (2..Math.sqrt(n)).none? { |i| n % i  == 0 } }
-  
   possible_primes = (3..num - 3).map { |n| n if (2..Math.sqrt(n)).none? { |i| n % i  == 0 } }.compact
 
   prime_pairs = []
 
-  possible_primes.each do |num1|
-    possible_primes.each do |num2|
-      prime_pairs << [num1, num2] if num1 + num2 == num && num1 <= num / 2
+  possible_primes.take_while { |i| i <= num / 2 }.each do |int1|
+    possible_primes.each do |int2|
+      prime_pairs << [int1, int2] if int1 + int2 == num
     end
   end
 
