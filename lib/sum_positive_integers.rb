@@ -17,5 +17,8 @@
 # Each integer is separated by a space, #, %, &, etc.
 
 def positive_sum(str)
-  
+  all_ints = str.split(/[^0-9-]/).map(&:to_i)
+  positive_ints = all_ints.select(&:positive?)
+
+  positive_ints.sum
 end
