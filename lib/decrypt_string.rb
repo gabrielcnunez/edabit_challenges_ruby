@@ -14,29 +14,21 @@
 # Notes
 # N/A
 
-def decrypt(str)
-  num_array = convert_string_to_array(str)
-  string_decrypted = ''
+def decrypt(s)
+  result = ""
+  i = 0
 
-  num_array.each { |n| string_decrypted += (n + 96).chr }
-
-  string_decrypted
-end
-
-def convert_string_to_array(str)
-  result = []
-  current_num = ''
-
-  str.each_char do |char|
-    if char == '#'
-      result << current_num.slice!(0..-3).to_i.digits.reverse if current_num.size > 2
-      result << current_num.to_i
-      current_num = ''
+  while i < s.length
+    if s[i + 2] == "#"
+      char_code = s[i, 2].to_i
+      i += 3
     else
-      current_num += char
+      char_code = s[i].to_i
+      i += 1
     end
+    
+    result += (char_code + 96).chr
   end
 
-  result << current_num.to_i.digits.reverse if current_num != ''
-  result.flatten
+  result
 end
