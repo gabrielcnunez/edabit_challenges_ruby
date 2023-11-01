@@ -15,5 +15,28 @@
 # N/A
 
 def decrypt(str)
-  
+  num_array = convert_string_to_array(str)
+  string_decrypted = ''
+
+  num_array.each { |n| string_decrypted += (n + 96).chr }
+
+  string_decrypted
+end
+
+def convert_string_to_array(str)
+  result = []
+  current_num = ''
+
+  str.each_char do |char|
+    if char == '#'
+      result << current_num.slice!(0..-3).to_i.digits.reverse if current_num.size > 2
+      result << current_num.to_i
+      current_num = ''
+    else
+      current_num += char
+    end
+  end
+
+  result << current_num.to_i.digits.reverse if current_num != ''
+  result.flatten
 end
