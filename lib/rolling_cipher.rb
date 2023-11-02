@@ -23,5 +23,19 @@
 # Each character is rotated the same number of times.
 
 def rolling_cipher(str, n)
+  rolled_str = ''
 
+  str.each_char do |char|
+    rolled_ord = char.ord + n
+
+    if rolled_ord > 122
+      rolled_str += (rolled_ord - 26).chr
+    elsif rolled_ord < 97
+      rolled_str += (rolled_ord + 26).chr
+    else
+      rolled_str += rolled_ord.chr
+    end
+  end
+
+  rolled_str
 end
