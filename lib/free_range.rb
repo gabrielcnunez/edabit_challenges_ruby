@@ -17,5 +17,33 @@
 # Return an empty array if the given array is empty.
 
 def numbers_to_ranges(arr)
-  
+  ranges_arr = []
+  ranges_arr << arr[0].to_s if arr.size == 1
+  string_range = ''
+  consecutive_streak = 0
+
+  arr.each_cons(2) do |a, b|
+    string_range += a.to_s if consecutive_streak == 0
+
+    if b - a != 1
+      if consecutive_streak == 0
+        ranges_arr << string_range
+        string_range = ''
+      else
+        string_range += "-#{a}"
+        ranges_arr << string_range
+        string_range = ''
+        consecutive_streak = 0
+      end
+    else
+      consecutive_streak += 1
+    end
+  end
+
+  if consecutive_streak != 0
+    string_range += "-#{arr[-1]}"
+    ranges_arr << string_range
+  end
+
+  ranges_arr
 end
