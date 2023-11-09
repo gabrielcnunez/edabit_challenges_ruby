@@ -37,5 +37,15 @@
 # N/A
 
 def tallest_skyscraper(arr)
-  
+  tallest_count = 0
+
+  0.upto(arr[0].size - 1) do |col|
+    height = 0.upto(arr.size - 1).map do |num| 
+      arr[num][col]
+    end.sum
+
+    tallest_count = height if height > tallest_count
+  end
+      
+  tallest_count
 end
