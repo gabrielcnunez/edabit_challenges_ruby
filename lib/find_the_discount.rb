@@ -16,5 +16,5 @@
 # Your answer should be rounded to two decimal places.
 
 def dis(price, discount)
-  
+  price * (100 - discount) / 100.0
 end
