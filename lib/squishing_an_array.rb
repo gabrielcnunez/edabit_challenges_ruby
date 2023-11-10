@@ -24,19 +24,18 @@
 def squish(arr, dir)
   return arr if arr.size == 0
 
-  squished_arr = [arr]
-  current_squish = arr.map(&:itself)
+  squished_arr = [arr.dup]
 
-  until current_squish.size <= 1
+  until arr.size == 1
     if dir == 'left'
-      summed_two_nums = current_squish.shift(2).sum
-      current_squish.unshift(summed_two_nums)
-      squished_arr << current_squish.map(&:itself)
+      summed_two_nums = arr.shift(2).sum
+      arr.unshift(summed_two_nums)
     else
-      summed_two_nums = current_squish.pop(2).sum
-      current_squish << summed_two_nums
-      squished_arr << current_squish.map(&:itself)
+      summed_two_nums = arr.pop(2).sum
+      arr << summed_two_nums
     end
+    
+    squished_arr << arr.dup
   end
 
   squished_arr
