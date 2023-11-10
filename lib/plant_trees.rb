@@ -54,5 +54,8 @@
 # N/A
 
 def plant_trees(w, l, g)
-  
+  perimeter = w * l - (w - 2) ** 2
+  spacing = g + 1
+
+  perimeter % spacing == 0 ? perimeter / spacing : 0
 end
