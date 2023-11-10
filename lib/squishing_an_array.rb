@@ -22,5 +22,22 @@
 # Return an empty array if the input is an empty array.
 
 def squish(arr, dir)
+  return arr if arr.size == 0
 
+  squished_arr = [arr]
+  current_squish = arr.map(&:itself)
+
+  until current_squish.size <= 1
+    if dir == 'left'
+      summed_two_nums = current_squish.shift(2).sum
+      current_squish.unshift(summed_two_nums)
+      squished_arr << current_squish.map(&:itself)
+    else
+      summed_two_nums = current_squish.pop(2).sum
+      current_squish << summed_two_nums
+      squished_arr << current_squish.map(&:itself)
+    end
+  end
+
+  squished_arr
 end
