@@ -22,7 +22,7 @@ def largest_digit_sum(num)
   largest_int = num
   highest_sum = num.digits.sum
 
-  (1..num).each do |int|
+  (1..num - 1).each do |int|
     sum = int.digits.sum
 
     if sum > highest_sum
