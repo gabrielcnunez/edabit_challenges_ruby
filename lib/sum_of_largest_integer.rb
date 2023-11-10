@@ -19,5 +19,17 @@
 # N/A
 
 def largest_digit_sum(num)
-  
+  largest_int = num
+  highest_sum = num.digits.sum
+
+  (1..num).each do |int|
+    sum = int.digits.sum
+
+    if sum > highest_sum
+      highest_sum = sum
+      largest_int = int
+    end
+  end
+
+  largest_int
 end
