@@ -12,7 +12,7 @@ RSpec.describe "Check Rubik's Cube" do
     expect(identify(
       ["O", "O"],
       ["O", "O", "O"]
-    )).to eq("Missing 1")
+    )).to eq("Non-Full")
 
     expect(identify(
       ["O", "O", "O"],

@@ -49,5 +49,14 @@
 # Don't forget to return by paying attention to capital letters.
 
 def identify(*cube)
+  height = cube.size
+  max_width = cube.max.size
 
+  return 'Non-Full' if height != max_width
+
+  missing_parts = 0
+
+  cube.each { |row| missing_parts += 1 if row.size != max_width}
+
+  missing_parts == 0 ? 'Full' : "Missing #{missing_parts}"
 end
