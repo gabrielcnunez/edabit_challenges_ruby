@@ -13,5 +13,7 @@
 # There will only be one unique longest string.
 
 def can_form(arr)
-  
+  big_word = arr.max_by(&:size)
+
+  arr.all? { |word| word.chars.all? { |char| big_word.include?(char) && big_word.count(char) >= word.count(char)} }
 end
