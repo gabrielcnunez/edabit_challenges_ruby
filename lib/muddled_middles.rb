@@ -14,5 +14,19 @@
 # Notice how one, two and three-letter words remain unchanged.
 
 def mix_middle(str)
-  
+  word_arr = str.split(' ')
+
+  mixed_words_arr = word_arr.map do |word|
+    if word.size > 3
+      first_ltr = word[0]
+      last_ltr = word[-1]
+      middle_mixed = word[1..-2].reverse!
+
+      first_ltr + middle_mixed + last_ltr
+    else
+      word
+    end
+  end
+
+  mixed_words_arr.join(' ')
 end
