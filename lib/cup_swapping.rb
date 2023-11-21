@@ -33,5 +33,11 @@
 # You cannot swap a cup with itself.
 
 def cup_swapping(arr)
-  
+  ball_pos = 'B'
+
+  arr.each do |swap|
+    ball_pos = swap.delete(ball_pos) if swap.include?(ball_pos)
+  end
+
+  ball_pos
 end
