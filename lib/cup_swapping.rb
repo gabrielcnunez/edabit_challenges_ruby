@@ -35,9 +35,7 @@
 def cup_swapping(arr)
   ball_pos = 'B'
 
-  arr.each do |swap|
-    ball_pos = swap.delete(ball_pos) if swap.include?(ball_pos)
-  end
+  arr.each { |swap| ball_pos = swap.delete(ball_pos) if swap.include?(ball_pos) }
 
   ball_pos
 end
