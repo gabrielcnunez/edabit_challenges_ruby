@@ -38,5 +38,14 @@
 # Try to solve the problem using only array methods.
 
 def interview(arr, tot)
+  return 'disqualified' if arr.size != 8 || tot > 120
+  max_time = 5
+  
+  arr.each_slice(2) do |a, b|
+    return 'disqualified' if a > max_time || b > max_time
 
+    max_time += 5
+  end
+
+  'qualified'
 end
