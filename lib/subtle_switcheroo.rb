@@ -13,5 +13,16 @@
 # Ignore punctuation and any instances where "nts" or "nce" are not at the end of a word (see example #3).
 
 def switcheroo(str)
-  
+  str.split(' ').map do |word|
+    word_only = word.match(/(\w+)(\W*)/)[1]
+    punctuation = word.match(/(\w+)(\W*)/)[2]
+
+    if word_only.end_with?('nts')
+      word_only.sub!('nts', 'nce')
+    elsif word_only.end_with?('nce')
+      word_only.sub!('nce', 'nts')
+    end
+    
+    word_only + punctuation
+  end.join(' ')
 end
