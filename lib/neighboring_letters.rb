@@ -23,7 +23,5 @@
 # All test cases will consist of lower case letters only.
 
 def neighboring(str)
-  str[1..-1].each_char.with_index { |char, ind| return false if (char.ord - str[ind].ord).abs != 1 }
-    
-  true
+  (1...str.length).all? { |ind| (str[ind].ord - str[ind - 1].ord).abs == 1 }
 end
