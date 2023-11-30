@@ -49,7 +49,7 @@ def freed_prisoners(prison)
   escapees = 0
   cell_index = 0
 
-  until cell_index == prison.size
+  while cell_index < prison.size
     if prison[cell_index] == 1
       escapees += 1
       cell_index += 1
