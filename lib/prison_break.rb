@@ -44,5 +44,20 @@
 # all the prison cells to your right are zeroes, you cannot free any more prisoners.
 
 def freed_prisoners(prison)
-  
+  return 0 if prison[0] == 0
+
+  escapees = 0
+  cell_index = 0
+
+  until cell_index == prison.size
+    if prison[cell_index] == 1
+      escapees += 1
+      cell_index += 1
+      prison = prison.map { |cell| cell == 0 ? 1 : 0 }
+    else
+      cell_index += 1
+    end
+  end
+
+  escapees
 end
