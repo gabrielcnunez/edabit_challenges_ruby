@@ -102,5 +102,18 @@
 # You can expect only positive integers as input, without exceptions to handle.
 
 def happy_algorithm(num)
-  
+  return 'HAPPY 1' if num == 1
+  current_num = num
+  nums_array = [num]
+  steps = 0
+
+  until current_num == 1 || nums_array.count(current_num) > 1
+    digits_array = current_num.to_s.chars.map(&:to_i)
+    new_num = digits_array.reduce(0) { |sum, n| sum + n ** 2 }
+    nums_array << new_num
+    current_num = new_num
+    steps += 1
+  end
+
+  current_num == 1 ? "HAPPY #{steps}" : "SAD #{steps}"
 end
