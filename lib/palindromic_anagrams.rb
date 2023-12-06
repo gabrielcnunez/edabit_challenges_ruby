@@ -17,5 +17,8 @@
 # Words are given in all lowercase.
 
 def is_palindrome_possible(str)
-  
+  char_quantities = str.chars.tally
+  single_char_count = char_quantities.values.count { |int| int == 1 }
+
+  single_char_count <= 1
 end
