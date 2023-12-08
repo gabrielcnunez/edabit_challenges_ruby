@@ -36,7 +36,7 @@ def is_magic_square(square)
   max_index = square.size - 1
 
   square[1..max_index].each { |arr| return false if arr.sum != start_num }
-  square.transpose.map(&:sum).each { |int| return false if int != start_num }
+  square.transpose.each { |arr| return false if arr.sum != start_num }
   
   first_diagonal = (0..max_index).map { |i| square[i][i] }
   second_diagonal = (0..max_index).map { |i| square[i][-i-1] }
