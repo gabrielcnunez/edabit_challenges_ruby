@@ -31,6 +31,16 @@
 # Test input will always be square.
 # Check the Resources tab for additional info on magic squares.
 
-def is_magic_square(arr)
+def is_magic_square(square)
+  start_num = square[0].sum
+  max_index = square.size - 1
+
+  square[1..max_index].each { |arr| return false if arr.sum != start_num }
+  square.transpose.map(&:sum).each { |int| return false if int != start_num }
   
+  first_diagonal = (0..max_index).map { |i| square[i][i] }
+  second_diagonal = (0..max_index).map { |i| square[i][-i-1] }
+  return false if first_diagonal.sum != start_num || second_diagonal.sum != start_num
+
+  true
 end
