@@ -14,5 +14,8 @@
 # Vowels are: a, e, i, o, u.
 
 def count_vowels(str)
+  return 0 if str.empty?
+  is_vowel = 'aeiou'.include?(str[0])
 
+  return (is_vowel ? 1 : 0) + count_vowels(str[1..-1])
 end
