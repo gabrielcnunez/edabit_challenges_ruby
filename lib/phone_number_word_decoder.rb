@@ -29,14 +29,16 @@
 # Check the Resources tab for more info on telephone keypads.
 
 def text_to_num(phone)
-  phone.gsub!(/[ABC]/, '2')
-  phone.gsub!(/[DEF]/, '3')
-  phone.gsub!(/[GHI]/, '4')
-  phone.gsub!(/[JKL]/, '5')
-  phone.gsub!(/[MNO]/, '6')
-  phone.gsub!(/[PQRS]/, '7')
-  phone.gsub!(/[TUV]/, '8')
-  phone.gsub!(/[WXYZ]/, '9')
-  
-  phone
+  letter_to_number = {
+    'A' => '2', 'B' => '2', 'C' => '2',
+    'D' => '3', 'E' => '3', 'F' => '3',
+    'G' => '4', 'H' => '4', 'I' => '4',
+    'J' => '5', 'K' => '5', 'L' => '5',
+    'M' => '6', 'N' => '6', 'O' => '6',
+    'P' => '7', 'Q' => '7', 'R' => '7', 'S' => '7',
+    'T' => '8', 'U' => '8', 'V' => '8',
+    'W' => '9', 'X' => '9', 'Y' => '9', 'Z' => '9'
+  }
+
+  phone.gsub(/[A-Z]/, letter_to_number)
 end
