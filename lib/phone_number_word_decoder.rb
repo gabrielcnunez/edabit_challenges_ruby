@@ -29,5 +29,14 @@
 # Check the Resources tab for more info on telephone keypads.
 
 def text_to_num(phone)
+  phone.gsub!(/[ABC]/, '2')
+  phone.gsub!(/[DEF]/, '3')
+  phone.gsub!(/[GHI]/, '4')
+  phone.gsub!(/[JKL]/, '5')
+  phone.gsub!(/[MNO]/, '6')
+  phone.gsub!(/[PQRS]/, '7')
+  phone.gsub!(/[TUV]/, '8')
+  phone.gsub!(/[WXYZ]/, '9')
   
+  phone
 end
