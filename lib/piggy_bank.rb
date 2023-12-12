@@ -43,5 +43,17 @@
 # BONUS: Try not adding the sum every day!
 
 def num_of_days(cost, savings, start)
-  
+  funds_needed = savings
+  saving_days = 0
+
+  until funds_needed >= cost
+    (start..start + 6).each do |int|
+      funds_needed += int
+      saving_days += 1
+      break if funds_needed >= cost
+    end
+    start += 1
+  end
+ 
+  saving_days
 end
