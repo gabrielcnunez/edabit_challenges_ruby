@@ -13,5 +13,8 @@
 # Names will always be made of two words, separated by a space.
 
 def initialize_names(arr)
-  
+  arr.map do |str|
+    names = str.split
+    names[0][0] + '. ' + names[1][0] + '.'
+  end
 end
