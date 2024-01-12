@@ -14,5 +14,5 @@
 # Each string is a sentence and should start with an uppercase character.
 
 def normalize(str)
-  
+  str == str.upcase ? str.capitalize! + '!' : str
 end
