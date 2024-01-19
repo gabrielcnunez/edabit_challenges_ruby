@@ -20,5 +20,8 @@
 # place", making the challenge more cumbersome than it needs to be.
 
 def frac_round(frac, n)
-  
+  raw_frac = frac.split('/')[0].to_f / frac.split('/')[1].to_i
+  formatted_frac = sprintf("%.#{n}f", raw_frac)
+
+  "#{frac} rounded to #{n} decimal places is #{formatted_frac}"
 end
