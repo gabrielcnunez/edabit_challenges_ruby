@@ -1,0 +1,41 @@
+require 'rspec'
+require './lib/fractions_and_rounding'
+
+RSpec.describe 'Fractions and Rounding' do
+  it 'given fraction and number of decimal places, return sentence with correct formatting of number' do
+    expect(frac_round("1/3", 5)).to eq("1/3 rounded to 5 decimal places is 0.33333")
+    expect(frac_round("2/8", 4)).to eq("2/8 rounded to 4 decimal places is 0.2500")
+    expect(frac_round("22/7", 2)).to eq("22/7 rounded to 2 decimal places is 3.14")
+    expect(frac_round("23/2", 2)).to eq("23/2 rounded to 2 decimal places is 11.50")
+    expect(frac_round("40/77", 3)).to eq("40/77 rounded to 3 decimal places is 0.519")
+    expect(frac_round("15/58", 3)).to eq("15/58 rounded to 3 decimal places is 0.259")
+    expect(frac_round("2/92", 2)).to eq("2/92 rounded to 2 decimal places is 0.02")
+    expect(frac_round("21/65", 6)).to eq("21/65 rounded to 6 decimal places is 0.323077")
+    expect(frac_round("29/40", 3)).to eq("29/40 rounded to 3 decimal places is 0.725")
+    expect(frac_round("49/38", 6)).to eq("49/38 rounded to 6 decimal places is 1.289474")
+    expect(frac_round("20/69", 3)).to eq("20/69 rounded to 3 decimal places is 0.290")
+    expect(frac_round("17/46", 6)).to eq("17/46 rounded to 6 decimal places is 0.369565")
+    expect(frac_round("46/28", 4)).to eq("46/28 rounded to 4 decimal places is 1.6429")
+    expect(frac_round("12/89", 3)).to eq("12/89 rounded to 3 decimal places is 0.135")
+    expect(frac_round("9/76", 7)).to eq("9/76 rounded to 7 decimal places is 0.1184211")
+    expect(frac_round("20/64", 4)).to eq("20/64 rounded to 4 decimal places is 0.3125")
+    expect(frac_round("28/77", 7)).to eq("28/77 rounded to 7 decimal places is 0.3636364")
+    expect(frac_round("17/52", 4)).to eq("17/52 rounded to 4 decimal places is 0.3269")
+    expect(frac_round("21/98", 6)).to eq("21/98 rounded to 6 decimal places is 0.214286")
+    expect(frac_round("49/61", 4)).to eq("49/61 rounded to 4 decimal places is 0.8033")
+    expect(frac_round("28/62", 3)).to eq("28/62 rounded to 3 decimal places is 0.452")
+    expect(frac_round("17/36", 3)).to eq("17/36 rounded to 3 decimal places is 0.472")
+    expect(frac_round("8/41", 2)).to eq("8/41 rounded to 2 decimal places is 0.20")
+    expect(frac_round("50/37", 7)).to eq("50/37 rounded to 7 decimal places is 1.3513514")
+    expect(frac_round("21/41", 3)).to eq("21/41 rounded to 3 decimal places is 0.512")
+    expect(frac_round("28/47", 6)).to eq("28/47 rounded to 6 decimal places is 0.595745")
+    expect(frac_round("1/48", 7)).to eq("1/48 rounded to 7 decimal places is 0.0208333")
+    expect(frac_round("12/58", 6)).to eq("12/58 rounded to 6 decimal places is 0.206897")
+    expect(frac_round("28/99", 5)).to eq("28/99 rounded to 5 decimal places is 0.28283")
+    expect(frac_round("24/72", 4)).to eq("24/72 rounded to 4 decimal places is 0.3333")
+    expect(frac_round("45/90", 3)).to eq("45/90 rounded to 3 decimal places is 0.500")
+    expect(frac_round("46/85", 5)).to eq("46/85 rounded to 5 decimal places is 0.54118")
+    expect(frac_round("45/86", 6)).to eq("45/86 rounded to 6 decimal places is 0.523256")
+    expect(frac_round("42/42", 7)).to eq("42/42 rounded to 7 decimal places is 1.0000000")
+  end
+end
