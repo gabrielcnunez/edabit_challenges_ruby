@@ -18,6 +18,15 @@
 # Notes
 # All the bottles will be shot down in all the tests.
 
+# Iterate through the array using an enumerable
+# Counter outside of iteration
+# Enumerable will add value to counter when "Bang!" or "BangBang!" occurs
+# Return the counter
+
 def roger_shots(arr)
-  
+  seconds = 0
+
+  arr.each { |str| seconds += 0.5 if str == "Bang!" || str == "BangBang!" }
+
+  seconds
 end
