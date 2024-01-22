@@ -26,5 +26,14 @@
 # Check the Resources for more info on right-angle triangles.
 
 def is_right_angle(arr, desc)
+  return false if arr.size >= 4
+
+  if desc == 'side'
+    return true if arr.size <= 2 || arr[0]**2 + arr[1]**2 == arr[2]**2
+  elsif desc == 'angle'
+    return true if arr.size <= 2 && arr.sum <= 90
+    return true if arr.size == 3 && arr.sum == 180 && arr.include?(90)
+  end
   
+  false
 end
