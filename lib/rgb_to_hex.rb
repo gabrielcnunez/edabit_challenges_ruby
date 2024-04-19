@@ -14,24 +14,8 @@
 
 
 def rgb_to_hex(str)
-  hex_string = '#'
-  hex_conventer = {
-    10 => 'a',
-    11 => 'b',
-    12 => 'c',
-    13 => 'd',
-    14 => 'e',
-    15 => 'f'
-  }
-
   rgb_ints = str.scan(/\d+/).map(&:to_i)
+  hex_values = rgb_ints.map { |int| int.to_s(16).rjust(2, '0') }.join
 
-  rgb_ints.each do |int|
-    hex_nums = []
-    hex_nums << int / 16
-    hex_nums << int % 16
-
-    hex_nums.each { |num| num < 10 ? hex_string << num.to_s : hex_string << hex_conventer[num] }
-  end
-  hex_string
+  '#' + hex_values
 end
