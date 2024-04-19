@@ -24,8 +24,7 @@ def rgb_to_hex(str)
     15 => 'f'
   }
 
-  rgb_string = str[/\(.*?\)/].delete('()').split(',')
-  rgb_ints = rgb_string.map { |e| e.strip.to_i }
+  rgb_ints = str.scan(/\d+/).map(&:to_i)
 
   rgb_ints.each do |int|
     hex_nums = []
