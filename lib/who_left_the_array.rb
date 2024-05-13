@@ -20,7 +20,5 @@ def missing(arr1, arr2)
   tallied_arr1 = arr1.tally
   tallied_arr2 = arr2.tally
 
-  tallied_arr1.each do |element, count|
-    return element if tallied_arr2[element].nil? || count > tallied_arr2[element]
-  end
+  tallied_arr1.each { |k, v|return k if tallied_arr2[k].nil? || v > tallied_arr2[k] }
 end
