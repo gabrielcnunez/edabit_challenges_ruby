@@ -1,22 +1,22 @@
 # Briscola is an Italian card game, played with a deck of 40 cards that has four suits 
-# (hearts, diamonds, clubs, and spades), so that there are ten cards per suit: the Ace, 
+# (hearts, diamonds, clubs, and spades), so that there are ten cards per suit => the Ace, 
 # the numbered cards from 2 up to 7, and the three face-cards (Jack, Queen, and King). 
 # In this challenge, the notation used for the cards is a string containing the card 
 # value (with the upper-case initial for face-cards) and the lower-case initial for 
-# suits, as in the examples below:
+# suits, as in the examples below =>
 
 # Ah = Ace of Hearts
 # 2s = Two of Spades
 # Jc = Jack of Clubs
 # Kd = King of Diamonds
 # The total number of points available is 120. When counting the points scored at the 
-# end of a game, the cards have the following values:
+# end of a game, the cards have the following values =>
 
-# Ace: 11 points
-# Three: 10 points
-# King: 4 points
-# Queen: 3 points
-# Jack: 2 points
+# Ace => 11 points
+# Three => 10 points
+# King => 4 points
+# Queen => 3 points
+# Jack => 2 points
 # Any other card has no value (0 points).
 
 # Each game of Briscola is made of two rounds. After the first round, the points are 
@@ -24,26 +24,26 @@
 # for winning the game, after that the second round is played.
 
 # - First Round -
-# Player score: 80
-# Opponent score: 40
+# Player score => 80
+# Opponent score => 40
 # - Second Round -
 # Player wins scoring 41 points or more.
 # Opponent wins scoring 81 points or more.
 # If after the second round the total points are equal for both you and your opponent, it's a tie.
 
 # - First Round -
-# Player score: 80
-# Opponent score: 40
+# Player score => 80
+# Opponent score => 40
 # - Second Round -
-# Player score: 40
-# Opponent score: 80
+# Player score => 40
+# Opponent score => 80
 
 # It's a tie! 120 points for both players.
-# You are given two arrays as parameters:
+# You are given two arrays as parameters =>
 
 # my_deck1 contains your collected cards during the first round.
 # my_deck2 contains your collected cards during the second round.
-# You have to implement a function that returns:
+# You have to implement a function that returns =>
 
 # "You Win!" if in the second round you totalized a higher score than your opponent's score in the first round.
 # "You Lose!" if in the second round you totalized a lower score than your opponent's score in the first round.
@@ -96,19 +96,13 @@ def briscola_score(my_deck1, my_deck2)
 end
 
 def score_tablulator(deck)
-  total = deck.map do |card|
-    if card[0] == 'A'
-      11
-    elsif card[0] == '3'
-      10
-    elsif card[0] == 'K'
-      4
-    elsif card[0] == 'Q'
-      3
-    elsif card[0] == 'J'
-      2
-    else
-      0
-    end
-  end.sum
+  card_scores = {
+    'A' => 11,
+    '3' => 10,
+    'K' => 4,
+    'Q' => 3,
+    'J' => 2
+  }
+
+  deck.sum { |card| card_scores[card[0]] || 0 }    
 end
