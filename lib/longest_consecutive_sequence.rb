@@ -21,5 +21,20 @@
 # -109 <= nums[i] <= 109
 
 def longest_consecutive(nums)
+  nums.uniq!
+  nums.sort!
+
+  current_seq = 1
+  max_seq = 1
+
+  nums.each_cons(2) do |ints|
+    if ints[1] - ints[0] == 1
+      current_seq += 1
+    else
+      max_seq = current_seq if current_seq > max_seq
+      current_seq = 1
+    end
+  end
   
+  current_seq > max_seq ? current_seq : max_seq
 end
