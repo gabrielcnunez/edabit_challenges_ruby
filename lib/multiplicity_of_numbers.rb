@@ -22,5 +22,10 @@
 # N/A
 
 def multiplicity(arr)
+  final_array = []
+  arr.tally.each do |k, v|
+    final_array << [k, v]
+  end
   
+  final_array
 end
