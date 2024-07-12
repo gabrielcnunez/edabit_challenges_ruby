@@ -15,6 +15,5 @@
 # You can expect a valid string to be provided for each test case.
 
 def reverse(str)
-  split_str = str.split(" ")
-  split_str.map {|word| word.size < 5 ? word : word.reverse }.join(" ")
+  str.split(" ").map {|word| word.size < 5 ? word : word.reverse }.join(" ")
 end
