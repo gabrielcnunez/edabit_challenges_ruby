@@ -18,7 +18,7 @@
 
 def hangman(str, arr)
   str.chars.map do |char|
-    if char.match?(/[a-zA-Z]/)
+    if char.match?(/[[:alpha:]]/)
       arr.include?(char.downcase) ? char : '-'
     else
       char
