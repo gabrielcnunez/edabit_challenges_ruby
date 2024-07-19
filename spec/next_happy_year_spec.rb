@@ -16,5 +16,7 @@ RSpec.describe 'Next Happy Year' do
     expect(happy_year(7712)).to eq(7801)
     expect(happy_year(8088)).to eq(8091)
     expect(happy_year(8999)).to eq(9012)
+    expect(happy_year(812)).to eq(813)
+    expect(happy_year(1000000)).to eq(1023456)
   end
 end

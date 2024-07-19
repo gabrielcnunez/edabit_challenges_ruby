@@ -19,7 +19,7 @@
 def happy_year(int)
   next_year = int + 1
 
-  next_year += 1 until next_year.digits.uniq.size == 4
-  
+  next_year += 1 until next_year.digits.uniq.size == next_year.digits.size
+
   next_year
 end
