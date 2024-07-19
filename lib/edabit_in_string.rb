@@ -15,5 +15,6 @@
 # Check the Resources tab for more details on subsequence.
 
 def edabit_in_string(str)
-  
+  result = str=~/#{[*'edabit'.chars]*".*"}/
+  !result ? "NO" : "YES"
 end
