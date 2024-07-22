@@ -20,9 +20,5 @@
 # Single-digit numbers are trivially palindrome numbers.
 
 def count_palindromes(num1, num2)
-  total_count = 0
-
-  (num1..num2).each { |int| total_count += 1 if int.to_s == int.digits.join }
-
-  total_count
+  (num1..num2).count { |int| int.to_s == int.digits.join }
 end
