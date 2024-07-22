@@ -30,5 +30,25 @@
 # make sure they're capitalised too.
 
 def tic_tac_toe(board)
-  
+  board.each do |row|
+    if row.all? { |cell| cell == "X" }
+      return "X"
+    elsif row.all? { |cell| cell == "O" }  
+      return "O"
+    end
+  end
+
+  board.transpose.each do |col|
+    return 'O' if !col.include?('X') && !col.include?('E')
+    return 'X' if !col.include?('O') && !col.include?('E')
+  end
+
+  size = board.size
+
+  return 'O' if (0..size-1).all? { |i| board[i][i] == 'O' }
+  return 'X' if (0..size-1).all? { |i| board[i][i] == 'X' }
+  return 'O' if (0..(size - 1)).all? { |i| board[i][size - 1 - i] == 'O' }
+  return 'X' if (0..(size - 1)).all? { |i| board[i][size - 1 - i] == 'X' }
+
+  'Draw'
 end
