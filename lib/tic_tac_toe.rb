@@ -31,11 +31,8 @@
 
 def tic_tac_toe(board)
   board.each do |row|
-    if row.all? { |cell| cell == "X" }
-      return "X"
-    elsif row.all? { |cell| cell == "O" }  
-      return "O"
-    end
+    return "X" if row.all? { |cell| cell == "X" }
+    return "O" if row.all? { |cell| cell == "O" }
   end
 
   board.transpose.each do |col|
