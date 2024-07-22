@@ -19,6 +19,10 @@
 # 2552. The reflectional symmetry of this number makes it a palindromic number.
 # Single-digit numbers are trivially palindrome numbers.
 
-def count_palindromes(a, b)
-  
+def count_palindromes(num1, num2)
+  total_count = 0
+
+  (num1..num2).each { |int| total_count += 1 if int.to_s == int.digits.join }
+
+  total_count
 end
