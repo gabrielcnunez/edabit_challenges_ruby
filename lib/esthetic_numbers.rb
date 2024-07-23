@@ -38,5 +38,19 @@
 # N/A
 
 def esthetic(num)
+  pleasing_bases = []
   
+  (2..10).each do |i|
+    based_str = num.to_s(i)
+    based_digits = based_str.to_i.digits
+
+    pleasing_bases << i && next if based_digits.size == 1
+
+    abs_diffs = []
+    based_digits.each_cons(2) { |a, b| abs_diffs << (a - b).abs }
+
+    pleasing_bases << i if abs_diffs.all? { |e| e == 1 }
+  end
+
+  pleasing_bases.empty? ? "Anti-Esthetic" : pleasing_bases
 end
