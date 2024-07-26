@@ -20,7 +20,13 @@
 # Notes
 # N/A
 
+# def check_perfect(num)
+#   factors = (1..(num / 2)).find_all { |i| num % i == 0 }
+#   factors.sum == num
+# end
+
 def check_perfect(num)
-  factors = (1..(num / 2)).find_all { |i| num % i == 0 }
-  factors.sum == num
+  factors_sum = 0
+  (1..(num / 2)).each { |i| factors_sum += i if num % i == 0 }
+  factors_sum == num
 end
