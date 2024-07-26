@@ -25,6 +25,6 @@
 # A single printed page requires each color once, so printing is not possible if 
 # any of the slots lack ink (see example #3).
 
-def ink_levels(ink)
-  
+def ink_levels(inks)
+  inks.values.min
 end
