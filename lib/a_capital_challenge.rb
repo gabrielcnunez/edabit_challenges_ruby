@@ -15,18 +15,10 @@
 # Strings can contain non-alphabetic characters.
 
 def select_letters(s1, s2)
-  combo_string = ''
-  s1.chars.each_with_index do |ltr, ind|
-    if s2[ind] && s2[ind].match?(/[A-Za-z]/)
-      combo_string << ltr if s2[ind] == s2[ind].upcase
-    end
-  end
-  
-  s2.chars.each_with_index do |ltr, ind|
-    if s1[ind] && s1[ind].match?(/[A-Za-z]/)
-      combo_string << ltr if s1[ind] == s1[ind].upcase 
-    end
-  end
+  result = ''
 
-  combo_string
+  s1.chars.each_with_index { |ltr, ind| result << ltr if s2[ind] && s2[ind].match(/[A-Z]/) }
+  s2.chars.each_with_index { |ltr, ind| result << ltr if s1[ind] && s1[ind].match(/[A-Z]/) }
+
+  result
 end
