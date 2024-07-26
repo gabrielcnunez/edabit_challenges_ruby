@@ -21,5 +21,6 @@
 # N/A
 
 def check_perfect(num)
-  
+  factors = (1..num / 2).find_all { |i| num % i == 0 }
+  factors.sum == num
 end
