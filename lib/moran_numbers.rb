@@ -18,7 +18,7 @@
 
 # Notes
 # N/A
-require 'prime'
+# require 'prime'
 
 def moran(num)
   diviser = num.digits.sum
@@ -26,5 +26,9 @@ def moran(num)
 
   quotient = num / diviser
 
-  quotient.prime? ? 'M' : 'H'
+  is_prime?(quotient) ? 'M' : 'H'
+end
+
+def is_prime?(num)
+  (2..Math.sqrt(num)).none? { |i| num % i == 0 }
 end
