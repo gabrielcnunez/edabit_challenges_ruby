@@ -18,7 +18,13 @@
 
 # Notes
 # N/A
+require 'prime'
 
 def moran(num)
-  
+  diviser = num.digits.sum
+  return 'Neither' if num % diviser != 0
+
+  quotient = num / diviser
+
+  quotient.prime? ? 'M' : 'H'
 end
