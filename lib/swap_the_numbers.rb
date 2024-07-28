@@ -25,5 +25,5 @@
 # a, b, and c will always be integers.
 
 def swap(a, b, c)
-  
+  a + b - c
 end
