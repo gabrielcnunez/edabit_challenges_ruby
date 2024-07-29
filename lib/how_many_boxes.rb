@@ -22,7 +22,7 @@ def boxes(weights)
   current_weight = 0
 
   weights.each do |weight|
-    if weight + current_weight > 10
+    if current_weight + weight > 10
       num_of_boxes += 1
       current_weight = weight
     else
@@ -30,7 +30,7 @@ def boxes(weights)
     end
   end
 
-  num_of_boxes += 1 if current_weight > 0
+  num_of_boxes += 1 unless current_weight.zero?
 
   num_of_boxes
 end
