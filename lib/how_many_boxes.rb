@@ -18,5 +18,19 @@
 # than or equal to 10 kgs, and need to be packed in the order that they arrive.
 
 def boxes(weights)
-  
+  num_of_boxes = 0
+  current_weight = 0
+
+  weights.each do |weight|
+    if weight + current_weight > 10
+      num_of_boxes += 1
+      current_weight = weight
+    else
+      current_weight += weight
+    end
+  end
+
+  num_of_boxes += 1 if current_weight > 0
+
+  num_of_boxes
 end
