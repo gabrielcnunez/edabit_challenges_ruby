@@ -20,5 +20,16 @@
 # Even if a 6 is rolled after a 1, 6 isn't summed but the 6's "effect" still takes place.
 
 def rolls(arr)
-  
+  sum_rolls = 0
+  arr.each_with_index do |num, ind|
+    if ind != 0 && arr[ind - 1] == 6
+      sum_rolls += num * 2
+    elsif ind != 0 && arr[ind - 1] == 1
+      nil
+    else
+      sum_rolls += num
+    end
+  end
+
+  sum_rolls    
 end
