@@ -21,12 +21,11 @@
 
 def rolls(arr)
   sum_rolls = 0
+  
   arr.each_with_index do |num, ind|
-    if ind != 0 && arr[ind - 1] == 6
+    if ind > 0 && arr[ind - 1] == 6
       sum_rolls += num * 2
-    elsif ind != 0 && arr[ind - 1] == 1
-      nil
-    else
+    elsif ind == 0 || arr[ind - 1] != 1
       sum_rolls += num
     end
   end
