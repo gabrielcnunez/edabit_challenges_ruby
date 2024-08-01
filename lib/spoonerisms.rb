@@ -20,31 +20,16 @@
 # vowel-starting and consonant-starting words).
 
 def spoonerize(phr)
-  split_phrase = phr.split(' ')
-  first_word = split_phrase[0]
-  second_word = split_phrase[1]
-  first_spoon = []
-  second_spoon = []
+  first_word, second_word = phr.split(' ')
   
-  first_word.chars.each_with_index do |char, ind|
-    if char.match?(/[aeiou]/)
-      first_spoon << first_word[ind..]
-      break
-    end
+  first_vowel_index_first_word = first_word.index(/[aeiou]/)
+  first_vowel_index_second_word = second_word.index(/[aeiou]/)
 
-    second_spoon << char
-  end
-  
-  first_first_spoon = []
+  first_spoon = first_word[first_vowel_index_first_word..]
+  second_spoon = first_word[0...first_vowel_index_first_word]
 
-  second_word.chars.each_with_index do |char, ind|
-    if char.match?(/[aeiou]/)
-      second_spoon << second_word[ind..]
-      break
-    end
+  first_first_spoon = second_word[0...first_vowel_index_second_word]
+  second_first_spoon = second_word[first_vowel_index_second_word..]
 
-    first_first_spoon << char
-  end
-
-  first_first_spoon.join + first_spoon.join + ' ' + second_spoon.join
+  "#{first_first_spoon}#{first_spoon} #{second_spoon}#{second_first_spoon}"
 end
