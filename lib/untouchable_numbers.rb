@@ -43,12 +43,20 @@ def is_untouchable(num)
   touchable_ints = []
   
   (num..(num ** 2)).each do |int|
-    divisors = []
-    (1..(int / 2)).each do |i|
-      divisors << i if int % i == 0
+    divisor_sum = 0
+    sqrt_int = Math.sqrt(int).to_i
+
+    (1..sqrt_int).each do |i|
+      if int % i == 0
+        divisor_sum += i
+        complement = int / i
+        divisor_sum += complement if complement != i && complement != int
+      end
+
+      break if divisor_sum > num
     end
     
-    touchable_ints << int if divisors.sum == num
+    touchable_ints << int if divisor_sum == num
   end
 
   touchable_ints.empty? ? true : touchable_ints
