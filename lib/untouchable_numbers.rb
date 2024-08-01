@@ -38,5 +38,18 @@
 # with 5 being the only odd number present; by the way, these two assertions are still unproofed.
 
 def is_untouchable(num)
+  return 'Invalid Input' if num < 2
+
+  touchable_ints = []
   
+  (num..(num ** 2)).each do |int|
+    divisors = []
+    (1..(int / 2)).each do |i|
+      divisors << i if int % i == 0
+    end
+    
+    touchable_ints << int if divisors.sum == num
+  end
+
+  touchable_ints.empty? ? true : touchable_ints
 end
