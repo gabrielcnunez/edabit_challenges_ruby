@@ -33,5 +33,13 @@
 # The amount of characters in the banner should be the same length as the message to pass the tests.
 
 def get_birthday_cake(name, age)
-  
+  if age % 2 == 0
+    middle = "# #{age} Happy Birthday #{name}! #{age} #"
+
+    ['#' * middle.size, middle, '#' * middle.size]
+  else
+    middle = "* #{age} Happy Birthday #{name}! #{age} *"
+
+    ['*' * middle.size, middle, '*' * middle.size]
+  end
 end
