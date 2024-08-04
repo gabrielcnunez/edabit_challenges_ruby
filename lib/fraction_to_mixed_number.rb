@@ -34,5 +34,39 @@
 # characters, or zero denominators.
 
 def mixed_number(frac)
+  split_frac = frac.split('/')
+  negator = split_frac[0].slice!(0) if split_frac[0].start_with?('-')
+  numerator = split_frac[0].to_i
+  denominator = split_frac[1].to_i
+ 
+  return "#{numerator}" if numerator == 0
   
+  if numerator % denominator == 0
+    whole_num = numerator / denominator
+    return negator.nil? ? "#{whole_num}" : "#{negator}#{whole_num}"
+  end
+
+  if numerator > denominator      
+    whole_num = (numerator.to_f / denominator).floor
+    remainder = numerator - (denominator * whole_num)
+    gcd = (numerator).gcd(denominator)
+    
+    if gcd != 1
+      remainder /= gcd
+      denominator /= gcd
+    end
+  else
+    gcd = (numerator).gcd(denominator)
+
+    if gcd != 1
+      numerator /= gcd
+      denominator /= gcd
+    end
+  end
+
+  if !whole_num
+    negator.nil? ? "#{numerator}/#{denominator}" : "#{negator}#{numerator}/#{denominator}"
+  else
+    negator.nil? ? "#{whole_num} #{remainder}/#{denominator}" : "#{negator}#{whole_num} #{remainder}/#{denominator}"
+  end 
 end
