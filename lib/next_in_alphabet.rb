@@ -19,24 +19,28 @@
 # Think about the letter "Z" like the number 9 and how it carries over to increment 
 # the next letter/digit over.
 
+# def next_letters(str)
+#   return 'A' if str.empty?
+
+#   chars = str.chars
+#   carry = true
+#   i = chars.length - 1
+
+#   while i >= 0 && carry
+#     if chars[i] == 'Z'
+#       chars[i] = 'A'
+#     else
+#       chars[i] = chars[i].next
+#       carry = false
+#     end
+#     i -= 1
+#   end
+
+#   chars.unshift('A') if carry
+
+#   chars.join
+# end
+
 def next_letters(str)
-  return 'A' if str.empty?
-
-  chars = str.chars
-  carry = true
-  i = chars.length - 1
-
-  while i >= 0 && carry
-    if chars[i] == 'Z'
-      chars[i] = 'A'
-    else
-      chars[i] = chars[i].next
-      carry = false
-    end
-    i -= 1
-  end
-
-  chars.unshift('A') if carry
-
-  chars.join
+  str.empty? ? 'A' : str.succ!
 end
