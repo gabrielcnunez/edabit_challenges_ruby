@@ -22,31 +22,71 @@
 # bills is an integer array.
 # bills[i] will be either 5, 10, or 20.
 
+# def lemonade(bills)
+#   cash_register = Hash.new(0)
+  
+#   bills.each do |bill|
+#     if bill == 10
+#       if cash_register[:five] >= 1
+#         cash_register[:ten] += 1
+#         cash_register[:five] -= 1
+#       else
+#         return false
+#       end
+#     elsif bill == 20
+#       if cash_register[:ten] >= 1 && cash_register[:five] >= 1
+#         cash_register[:twenty] += 1
+#         cash_register[:ten] -= 1
+#         cash_register[:five] -= 1
+#       elsif cash_register[:five] >= 3
+#         cash_register[:five] -= 3
+#       else
+#         return false
+#       end
+#     else
+#       cash_register[:five] += 1
+#     end
+#   end    
+
+#   true
+# end
+
 def lemonade(bills)
   cash_register = Hash.new(0)
   
   bills.each do |bill|
-    if bill == 10
-      if cash_register[:five] >= 1
-        cash_register[:ten] += 1
-        cash_register[:five] -= 1
-      else
-        return false
-      end
-    elsif bill == 20
-      if cash_register[:ten] >= 1 && cash_register[:five] >= 1
-        cash_register[:twenty] += 1
-        cash_register[:ten] -= 1
-        cash_register[:five] -= 1
-      elsif cash_register[:five] >= 3
-        cash_register[:five] -= 3
-      else
-        return false
-      end
-    else
+    case bill
+    when 5
       cash_register[:five] += 1
+    when 10
+      return false unless change_for_ten?(cash_register)
+    when 20
+      return false unless change_for_twenty?(cash_register)
+    else
+      return false  # This handles any unexpected bill values.
     end
   end    
 
+  true
+end
+
+def change_for_ten?(cash_register)
+  return false if cash_register[:five] < 1
+  
+  cash_register[:ten] += 1
+  cash_register[:five] -= 1
+  true
+end
+
+def change_for_twenty?(cash_register)
+  if cash_register[:ten] >= 1 && cash_register[:five] >= 1
+    cash_register[:twenty] += 1
+    cash_register[:ten] -= 1
+    cash_register[:five] -= 1
+  elsif cash_register[:five] >= 3
+    cash_register[:five] -= 3
+  else
+    return false
+  end
   true
 end
