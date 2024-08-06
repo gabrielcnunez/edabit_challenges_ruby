@@ -23,5 +23,30 @@
 # bills[i] will be either 5, 10, or 20.
 
 def lemonade(bills)
+  cash_register = Hash.new(0)
   
+  bills.each do |bill|
+    if bill == 10
+      if cash_register[:five] >= 1
+        cash_register[:ten] += 1
+        cash_register[:five] -= 1
+      else
+        return false
+      end
+    elsif bill == 20
+      if cash_register[:ten] >= 1 && cash_register[:five] >= 1
+        cash_register[:twenty] += 1
+        cash_register[:ten] -= 1
+        cash_register[:five] -= 1
+      elsif cash_register[:five] >= 3
+        cash_register[:five] -= 3
+      else
+        return false
+      end
+    else
+      cash_register[:five] += 1
+    end
+  end    
+
+  true
 end
