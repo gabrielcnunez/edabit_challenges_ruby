@@ -30,8 +30,9 @@ def string_code(str)
   consonant_count = []
 
   str.split(' ').each do |word|
-    vowels = word.scan(/[^aeiou\W]/i).size
-    consonants = word.scan(/[aeiou]/i).size
+    just_letters = word.gsub(/\W/, '')
+    vowels = just_letters.scan(/[^aeiou\W]/i).size
+    consonants = just_letters.size - vowels
 
     vowel_count << vowels.to_s; consonant_count << consonants.to_s
   end
