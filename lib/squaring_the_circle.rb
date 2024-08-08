@@ -25,5 +25,9 @@
 # N/A
 
 def circle(n)
-
+  pi = Math::PI
+  radius = 100 / 2 / pi
+  perimeter = 2 * n * radius * Math.sin(pi / n)
+  
+  perimeter.round(3)
 end
