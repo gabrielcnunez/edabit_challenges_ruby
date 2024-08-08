@@ -26,5 +26,15 @@
 # A space between numbers is required (["1 2 3", "4 5 6"] vs. ["1,2,3", "4,5,6"]).
 
 def string_code(str)
-  
+  vowel_count = []
+  consonant_count = []
+
+  str.split(' ').each do |word|
+    vowels = word.scan(/[^aeiou\W]/i).size
+    consonants = word.scan(/[aeiou]/i).size
+
+    vowel_count << vowels.to_s; consonant_count << consonants.to_s
+  end
+
+  [vowel_count.join(' '), consonant_count.join(' ')]
 end
