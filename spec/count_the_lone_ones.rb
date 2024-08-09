@@ -2,7 +2,7 @@ require 'rspec'
 require './lib/count_the_lone_ones'
 
 RSpec.describe 'Count the Lone Ones' do
-  it 'takes pos int, returns no. of digits that never appear twice or more in a row' do
+  it 'takes pos int, returns no. of 1s that never appear twice or more in a row' do
     expect(count_lone_ones(101)).to eq(2)
     expect(count_lone_ones(1191)).to eq(1)
     expect(count_lone_ones(1111)).to eq(0)

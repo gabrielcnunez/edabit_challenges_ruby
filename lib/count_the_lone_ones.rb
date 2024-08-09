@@ -15,5 +15,23 @@
 # Tests will include positive whole numbers only.
 
 def count_lone_ones(num)
-  
+  return 1 if num == 1
+  return 0 if num < 10 && num != 1
+
+  num_array = num.digits.reverse
+  lone_ones = 0
+
+  num_array.each_with_index do |n, ind|
+    if n == 1
+      if !num_array[ind + 1] && num_array[ind - 1] != 1
+        lone_ones += 1
+      elsif ind - 1 < 0 && num_array[ind + 1] != 1
+        lone_ones += 1
+      elsif (num_array[ind - 1] >= 0 && num_array[ind - 1] != 1) && (num_array[ind + 1] && num_array[ind + 1] != 1)
+        lone_ones += 1
+      end
+    end
+  end
+    
+  lone_ones
 end
