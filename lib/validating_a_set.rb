@@ -59,14 +59,23 @@
 # that property, or none will share that particular property.
 # You can play Set by checking the Resources tab.
 
-def is_set(cards)
-  card_properties = Hash.new(0)
+# def is_set(cards)
+#   card_properties = Hash.new(0)
   
-  cards.each do |card|
-    card.each_value do |value|
-      card_properties[value] += 1
-    end
-  end
+#   cards.each do |card|
+#     card.each_value do |value|
+#       card_properties[value] += 1
+#     end
+#   end
 
-  !card_properties.values.include?(2)
+#   !card_properties.values.include?(2)
+# end
+
+def is_set(cards)
+  properties = [:color, :number, :shade, :shape]
+
+  properties.all? do |property|
+    values = cards.map { |card| card[property] }
+    values.uniq.size == 1 || values.uniq.size == 3
+  end
 end
