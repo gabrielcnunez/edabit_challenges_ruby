@@ -60,5 +60,13 @@
 # You can play Set by checking the Resources tab.
 
 def is_set(cards)
+  card_properties = Hash.new(0)
   
+  cards.each do |card|
+    card.each_value do |value|
+      card_properties[value] += 1
+    end
+  end
+
+  !card_properties.values.include?(2)
 end
