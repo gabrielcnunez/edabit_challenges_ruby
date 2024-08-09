@@ -22,15 +22,12 @@ def count_lone_ones(num)
   lone_ones = 0
 
   num_array.each_with_index do |n, ind|
-    if n == 1
-      if !num_array[ind + 1] && num_array[ind - 1] != 1
-        lone_ones += 1
-      elsif ind - 1 < 0 && num_array[ind + 1] != 1
-        lone_ones += 1
-      elsif (num_array[ind - 1] >= 0 && num_array[ind - 1] != 1) && (num_array[ind + 1] && num_array[ind + 1] != 1)
-        lone_ones += 1
-      end
-    end
+    next unless n == 1
+
+    before = num_array[ind - 1] if ind - 1 >= 0
+    after = num_array[ind + 1] if ind + 1 < num_array.size
+
+    lone_ones += 1 if before != 1 && after != 1
   end
     
   lone_ones
