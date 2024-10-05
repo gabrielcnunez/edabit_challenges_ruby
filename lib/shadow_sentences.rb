@@ -24,11 +24,10 @@ def shadow_sentence(a, b)
   b_words = b.split(' ')
 
   return false if a_words.size != b_words.size
-  
-  range = a_words.size - 1
-  return false if (0..range).any? { |i| a_words[i].size != b_words[i].size }
-  return false if (0..range).any? { |i| a_words[i].size != b_words[i].size }
-  return false if (0..range).any? { |i| a_words[i].chars & b_words[i].chars != [] }
+
+  a_words.zip(b_words).each do |a_word, b_word|
+    return false if a_word.size != b_word.size || (a_word.chars & b_word.chars).any?
+  end
 
   true
 end
