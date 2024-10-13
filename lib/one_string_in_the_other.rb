@@ -19,5 +19,19 @@
 # Your function should NOT be case sensitive (see example #2).
 
 def overlap(s1, s2)
-  
+  one_chars = s1.downcase.chars
+  two_chars = s2.downcase.chars
+
+  if two_chars.size > one_chars.size
+    two_chars = two_chars.last(one_chars.size)
+  elsif one_chars.size > two_chars.size
+    one_chars = one_chars.last(two_chars.size)
+  end
+
+  one_chars.zip(two_chars).each do |one_char, two_char|
+    next if one_char == '*' || two_char == '*'
+    return false if one_char != two_char
+  end
+
+  true
 end
