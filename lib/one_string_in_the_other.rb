@@ -19,18 +19,18 @@
 # Your function should NOT be case sensitive (see example #2).
 
 def overlap(s1, s2)
-  one_chars = s1.downcase.chars
-  two_chars = s2.downcase.chars
+  one_chars = s1.downcase
+  two_chars = s2.downcase
 
-  if two_chars.size > one_chars.size
-    two_chars = two_chars.last(one_chars.size)
-  elsif one_chars.size > two_chars.size
-    one_chars = one_chars.last(two_chars.size)
+  if one_chars.size > two_chars.size
+    one_chars = one_chars[-two_chars.size..]
+  elsif two_chars.size > one_chars.size
+    two_chars = two_chars[-one_chars.size..]
   end
 
-  one_chars.zip(two_chars).each do |one_char, two_char|
-    next if one_char == '*' || two_char == '*'
-    return false if one_char != two_char
+  one_chars.chars.each_with_index do |char, i|
+    next if char == '*' || two_chars[i] == '*'
+    return false if char != two_chars[i]
   end
 
   true
