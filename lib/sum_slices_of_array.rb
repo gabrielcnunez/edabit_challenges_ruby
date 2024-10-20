@@ -27,5 +27,22 @@
 # Do not sort the array.
 
 def sum_of_slices(arr)
-  
+  slices = []
+  sum = 0
+
+  arr.each_with_index do |num, idx|
+    if num + sum <= 100 && sum == 0 && idx + 1 > arr.size - 1
+      slices << num
+    elsif num + sum <= 100
+      sum += num
+    elsif num + sum > 100 && idx + 1 <= arr.size - 1
+      slices << sum
+      sum = num
+    elsif num + sum > 100 && idx + 1 > arr.size - 1
+      slices << sum 
+      slices << num
+    end
+  end
+
+  slices
 end
