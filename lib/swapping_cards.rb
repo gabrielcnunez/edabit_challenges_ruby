@@ -37,18 +37,11 @@
 def swap_cards(n1, n2)
   p1_cards = n1.digits.reverse
   p2_cards = n2.digits.reverse
-  cards_to_swap = []
 
   if p1_cards[1] >= p1_cards[0]
-    cards_to_swap << p1_cards.shift
-    cards_to_swap << p2_cards.shift
-    p1_cards.unshift(cards_to_swap.pop)
-    p2_cards.unshift(cards_to_swap.pop)
+    p1_cards[0], p2_cards[0] = p2_cards[0], p1_cards[0]
   else
-    cards_to_swap << p1_cards.pop
-    cards_to_swap << p2_cards.shift
-    p1_cards << cards_to_swap.pop
-    p2_cards.unshift(cards_to_swap.pop)
+    p1_cards[-1], p2_cards[0] = p2_cards[0], p1_cards[-1] 
   end
 
   p1_cards.join.to_i > p2_cards.join.to_i
