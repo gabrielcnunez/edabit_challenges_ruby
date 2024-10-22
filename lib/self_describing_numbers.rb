@@ -42,5 +42,9 @@
 # You can expect always valid non-negative integers as input.
 
 def is_self_describing(num)
-  
+  num_str = num.to_s
+  return false if num_str.size % 2 != 0
+  num_pairs = num.digits.reverse.each_slice(2).to_a
+
+  num_pairs.all? { |e| num_str.count(e[1].to_s) == e[0] }
 end
