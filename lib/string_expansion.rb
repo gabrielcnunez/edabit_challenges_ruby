@@ -23,5 +23,12 @@
 # N/A
 
 def string_expansion(str)
-  
+  expanded_str = ''
+  multiplier = 1
+
+  str.chars.each do |char|
+    char.match?(/\d/) ? multiplier = char.to_i : expanded_str << (char * multiplier)
+  end
+
+  expanded_str
 end
