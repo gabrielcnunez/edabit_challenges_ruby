@@ -24,6 +24,15 @@
 # Notes
 # N/A
 
-def stock_picker(arr)
-  
+def stock_picker(prices)
+  min_price = prices[0]
+  max_profit = -1
+
+  prices.each do |current_price|
+    potential_profit = current_price - min_price
+    max_profit = [max_profit, potential_profit].max
+    min_price = [min_price, current_price].min
+  end
+
+  max_profit > 0 ? max_profit : -1
 end
