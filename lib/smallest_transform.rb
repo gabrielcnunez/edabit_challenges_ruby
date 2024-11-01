@@ -21,14 +21,13 @@
 # If a number already has identical digits, return 0.
 
 def smallest_transform(num)
-  possible_steps = []
   digits = num.digits
+  min_steps = Float::INFINITY
 
-  (0..digits.size - 1).each do |int|
-    total_steps = 0
-    digits.each { |digit| total_steps += (digit - digits[int]).abs } 
-    possible_steps << total_steps
+  digits.each do |int|
+    total_steps = digits.sum { |digit| (int - digit).abs } 
+    min_steps = [min_steps, total_steps].min
   end
 
-  possible_steps.min
+  min_steps
 end
