@@ -21,5 +21,14 @@
 # If a number already has identical digits, return 0.
 
 def smallest_transform(num)
-  
+  possible_steps = []
+  digits = num.digits
+
+  (0..digits.size - 1).each do |int|
+    total_steps = 0
+    digits.each { |digit| total_steps += (digit - digits[int]).abs } 
+    possible_steps << total_steps
+  end
+
+  possible_steps.min
 end
