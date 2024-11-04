@@ -38,5 +38,15 @@
 # The highest score has a rank value of 1.
 
 def competition_rank(results, person)
-  
+  sorted_results = results.sort_by { |_, score| -score }
+ 
+  rank = 1
+  ranked_results = {}
+
+  sorted_results.each_with_index do |(k, v), i|
+    ranked_results[k] = rank
+    rank = (i + 2) if i + 1 < sorted_results.size && v != sorted_results[i + 1][1]
+  end
+
+  ranked_results[person]
 end
