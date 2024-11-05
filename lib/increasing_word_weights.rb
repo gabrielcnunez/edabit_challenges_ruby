@@ -19,10 +19,7 @@
 
 def increasing_word_weights(str)
   words_only = str.gsub(/[[:punct:]]/, '').split
-
-  weights = words_only.map do |word|
-    word.each_byte.reduce(:+)
-  end
+  weights = words_only.map { |word| word.each_byte.reduce(:+) }
 
   weights.each_cons(2).all? { |a, b| a < b }
 end
