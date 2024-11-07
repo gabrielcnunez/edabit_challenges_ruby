@@ -16,11 +16,6 @@
 
 def pig_latin_sentence(str)
   str.split.map do |word|
-    if word[0].match?(/[aeiou]/)
-      word + 'way'
-    else
-      split_word = word.split(/(?=[aeiou])/, 2)
-      split_word[1] + split_word[0] + 'ay'
-    end
+    word.match?(/\A[aeiou]/) ? "#{word}way" : word.sub(/^([^aeiou]+)(.*)/, '\2\1ay')
   end.join(' ')
 end
