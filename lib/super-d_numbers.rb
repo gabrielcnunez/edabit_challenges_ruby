@@ -32,10 +32,9 @@
 # Any given n will be a positive integer greater or equal to 0.
 
 def is_super_d(num)
-  match = (2..9).find_all do |n|
-    num_str = (n * num ** n).to_s
-    num_str.include?(n.to_s * n)
-  end.max
-
-  !match ? "Normal Number" : "Super-#{match} Number"
+  (2..9).each do |n|
+    result = (n * num ** n).to_s
+    return "Super-#{n} Number" if result.include?(n.to_s * n)
+  end
+  "Normal Number"
 end
