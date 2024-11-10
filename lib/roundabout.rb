@@ -24,6 +24,11 @@
 # You'll be driving clockwise within the roundabout.
 # Sometimes you have to take the roundabout more than once.
 
-def roundabout(size, deg)
-  
+def roundabout(exits, deg)
+  exit_degrees = 360.0 / exits
+  turnoff = deg + 30
+  exit_num = (turnoff / exit_degrees).ceil
+  exit_num -= exits while exit_num >= exits
+
+  "Exit #{exit_num}"
 end
