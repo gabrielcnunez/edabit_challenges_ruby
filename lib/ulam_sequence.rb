@@ -29,6 +29,25 @@
 # Notes
 # N/A
 
-def ulam(num)
+def ulam(n)
+  sequence = [1, 2]
   
+  while sequence.size < n
+    next_num = sequence.last + 1
+    found = false
+    
+    until found
+      sum_counts = Hash.new(0)
+      sequence.combination(2).each do |a, b|
+        sum_counts[a + b] += 1
+      end
+      
+      next_candidates = sum_counts.select { |sum, count| count == 1 && sum > sequence.last }
+      next_num = next_candidates.keys.min
+      sequence << next_num
+      found = true
+    end
+  end
+  
+  sequence[n - 1]
 end
