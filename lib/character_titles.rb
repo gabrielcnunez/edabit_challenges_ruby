@@ -20,5 +20,13 @@
 # See the Resources tab for more info on the various Ruby string methods.
 
 def correct_title(str)
-  
+  lowercase_words = %w[and the of in]
+
+  str.split(/(\s|-|,|\.)/).map do |word|
+    if lowercase_words.include?(word.downcase)
+      word.downcase
+    else
+      word.capitalize
+    end
+  end.join
 end
