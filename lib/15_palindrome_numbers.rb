@@ -29,5 +29,14 @@
 # N/A
 
 def generate_palindromes(int)
+  pal_numbers = []
   
+  while pal_numbers.size < 15
+    int.downto(11) do |i|
+      pal_numbers << i if i.to_s == i.to_s.reverse
+      break if pal_numbers.size >= 15
+    end
+  end
+
+  pal_numbers.reverse
 end
